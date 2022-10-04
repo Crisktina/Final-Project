@@ -1,5 +1,13 @@
 <template>
-  <div>Task Item Component</div>
+  <div class="taskItem">
+    <li>
+      <b>{{ taskData.title }} </b><br />
+      <i> {{ taskData.description }}</i
+      ><br />
+      <button class="green_btn">DONE</button
+      ><button class="red_btn">X-Delete</button>
+    </li>
+  </div>
 </template>
 
 <script setup>
@@ -8,6 +16,7 @@
 // ])
 
 // const props = defineProps(["ENTER-PROP-HERE"]);
+const props = defineProps(["taskData"]);
 </script>
 
 <style></style>

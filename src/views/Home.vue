@@ -1,18 +1,76 @@
 <template>
-  <Nav />
 
-  <div>hello</div>
 
-  <Footer />
+  <div id="flexbox">
+    <div class="flexbox_element">
+      <div>You are signed up as {{ userName }}</div>
+
+      <NewTask @childNewTask="sendToStore" />
+      <br />
+      <p>Total tasks: {{ taskArray.length }}</p>
+    </div>
+    <div id="todoTasks" class="flexbox_element">
+      <TodoTasks />
+      <ol>
+        <TaskItem
+          v-for="(task, index) in taskArray"
+          :key="index"
+          :taskData="task"
+        ></TaskItem>
+      </ol>
+    </div>
+    <div id="doneTasks" class="flexbox_element"><DoneTasks /></div>
+  </div>
+
+  
 </template>
 
 <script setup>
 import {ref} from "vue";
-import Nav from "../components/Nav.vue";
-import Footer from "../components/Footer.vue"
+
+import { useTaskStore } from "../stores/task.js";
+import NewTask from "@/components/NewTask.vue";
+import TaskItem from "../components/TaskItem.vue";
+import TodoTasks from "../components/TodoTasks.vue";
+import DoneTasks from "../components/DoneTasks.vue";
+
+//coger el email del usuario
+
+import { useUserStore } from "@/stores/user.js";
+let userName = ref(useUserStore().user.email);
+
+// nos definimos la tienda del usuario dentro de una constante
+const taskStore = useTaskStore();
+// Inicializamos array de tareas
+let taskArray = ref([]);
+
+async function readFromStore() {
+  taskArray.value = await taskStore.fetchTasks();
+};
+
+readFromStore();
+
+// Enviamos los datos de la tarea a la Tienda taskStore
+async function sendToStore(title, description) {
+  await taskStore.addTask(title, description);
+  readFromStore();
+};
+// async function readAll() {
+//   let { data: tasks, error } = await supabase.from("tasks").select("*");
+// }
+// readAll();
 </script>
 
-<style></style>
+<style scoped>
+#todoTasks {
+  background-color: rgb(33, 35, 118);
+  color: white;
+};
+#doneTasks {
+  background-color: rgb(41, 93, 41);
+  color: white;
+};
+</style>
 
 <!-- 
 **Hints**

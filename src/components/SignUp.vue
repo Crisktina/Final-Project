@@ -1,16 +1,14 @@
 <template>
   <div>Sign Up</div>
-  <PersonalRouter :route="route" :buttonText="buttonText" />
-  <p>Good Music, Patience and a lot effort</p>
-  <p>Keep calm and code on!</p>
-
+  
+ <p>Create your personal account to manage your own tasks.</p>
   <form @submit.prevent="signUp">
     <div class="">
       <label class="" for="">Email</label>
       <input
         class=""
         type="email"
-        placeholder="dave@wuTangfinancial.com"
+        placeholder="user@email.com"
         v-model="email"
         id="email"
       />
@@ -38,6 +36,7 @@
     <button class="" type="submit">Sign Up</button>
     <p class="">
       <span class="">Have an account? </span>
+      <PersonalRouter :route="route" :buttonText="buttonText" />
     </p>
   </form>
 </template>

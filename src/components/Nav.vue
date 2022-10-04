@@ -1,5 +1,5 @@
 <template>
-  <div>Nav Component</div>
+  <div><a href="">Task-it App</a></div>
 </template>
 
 <script setup>

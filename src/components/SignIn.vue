@@ -1,7 +1,4 @@
 <template>
-  <div>Sign In</div>
-  <PersonalRouter :route="route" :buttonText="buttonText" />
-  <p>Time to build up the Final Project!</p>
   <p class="sign-in-text">Sign In</p>
   <p v-if="errorMsg" class="">
     {{ errorMsg }}
