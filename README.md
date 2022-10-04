@@ -39,12 +39,17 @@ npm run build
 ```
 
 ### Day 1
-Clase de Supabase
+Clase de Supabase.
 Set up del proyecto.
 
 
 ### Day 2
-Entender mejor premisa del proyecto.
+Entender mejor la premisa del proyecto.
 Repasar la logica ya escrita en el proyecto.
 Aplicar mejor lo hecho en la tarde anterior.
-Empezar con los estilos.
+Planificar en kanban.
+Busqueda de inspiración para el diseño.
+Crear el template con Figma.
+Empezar a estructurar los estilos.
+
+### Day 3
