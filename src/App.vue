@@ -37,4 +37,14 @@ onMounted(async () => {
   </div>
 </template>
 
-<style></style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+ 
+ * {
+     margin: 0px;
+     padding: 0px;
+     font-family: Inter, sans-serif;
+     font-style: normal;
+     box-sizing: border-box;
+ }
+</style>

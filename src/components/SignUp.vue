@@ -1,44 +1,60 @@
 <template>
-  <div>Sign Up</div>
-  
- <p>Create your personal account to manage your own tasks.</p>
-  <form @submit.prevent="signUp">
-    <div class="">
-      <label class="" for="">Email</label>
-      <input
-        class=""
-        type="email"
-        placeholder="user@email.com"
-        v-model="email"
-        id="email"
-      />
-    </div>
-    <div class="">
-      <label class="" for="">Password</label>
-      <input
-        class=""
-        type="password"
-        placeholder="************"
-        v-model="password"
-        id="password"
-      />
-    </div>
-    <div class="">
-      <label class="" for="">Confirm Password</label>
-      <input
-        class=""
-        type="password"
-        placeholder="************"
-        v-model="confirmPassword"
-        id="confirmPassword"
-      />
-    </div>
-    <button class="" type="submit">Sign Up</button>
-    <p class="">
-      <span class="">Have an account? </span>
-      <PersonalRouter :route="route" :buttonText="buttonText" />
+  <div class="layout">
+    <p class="title">Register</p>
+    <p class="text-base">And start taking notes!</p>
+    <p v-if="errorMsg" class="">
+      {{ errorMsg }}
     </p>
-  </form>
+    <form @submit.prevent="signUp" class="form-container">
+      <div class="form-section">
+        <label class="text-medium" for="">Email Address</label>
+        <input
+          class="input text-base"
+          type="email"
+          placeholder="user@email.com"
+          v-model="email"
+          id="email"
+        />
+      </div>
+      <div class="form-section">
+        <label class="text-medium" for="">Password</label>
+        <input
+          class="input text-base"
+          type="password"
+          placeholder="************"
+          v-model="password"
+          id="password"
+        />
+        <span class="">
+          <EyeIcon
+            :class="[passwordFieldIcon]"
+            @click.prevent="hidePassword = !hidePassword"
+          />
+        </span>
+      </div>
+      <div class="form-section">
+        <label class="text-medium" for="">Confirm Password</label>
+        <input
+          class="input text-base"
+          type="password"
+          placeholder="************"
+          v-model="confirmPassword"
+          id="confirmPassword"
+        />
+        <span class="">
+          <EyeIcon
+            :class="[passwordFieldIcon]"
+            @click.prevent="hidePassword = !hidePassword"
+          />
+        </span>
+      </div>
+      <button class="button text-medium" type="submit">Register</button>
+      <p class="text-medium">
+        <span class="text-medium purple">Already have an account?</span>
+        <PersonalRouter class="text-medium purple" :route="route" :buttonText="buttonText" />
+      </p>
+    </form>
+  </div>
 </template>
 
 <script setup>
@@ -48,7 +64,7 @@ import PersonalRouter from "./PersonalRouter.vue";
 import { useUserStore } from "../stores/user";
 // Route Variables
 const route = "/auth/login";
-const buttonText = "Test the Sign In Route";
+const buttonText = " Login here";
 // Input Fields
 const email = ref(null);
 const password = ref(null);
@@ -81,4 +97,6 @@ async function signUp() {
 }
 </script>
 
-<style></style>
+<style>
+/* styles in SignIn */
+</style>

@@ -1,47 +1,50 @@
 <template>
-  <p class="sign-in-text">Sign In</p>
-  <p v-if="errorMsg" class="">
-    {{ errorMsg }}
-  </p>
-  <form @submit.prevent="signIn">
-    <div class="">
-      <label class="" for="">Email</label>
-      <input
-        class=""
-        type="email"
-        placeholder="user@email.com"
-        v-model="email"
-        id="email"
-      />
-    </div>
-    <div class="mb-4">
-      <label class="" for="">Password</label>
-
-      <div class="">
-        <input
-          class=""
-          :type="passwordFieldType"
-          onpaste="return false"
-          placeholder="************"
-          v-model="password"
-          id="password"
-        />
-        <span class="">
-          <EyeIcon
-            :class="[passwordFieldIcon]"
-            @click.prevent="hidePassword = !hidePassword"
-          />
-        </span>
-      </div>
-    </div>
-
-    <button class="" type="submit">Sign In</button>
-    <p class="">
-      <span class="">Don’t have an account? </span>
-
-      <PersonalRouter :route="route" :buttonText="buttonText" />
+  <div class="layout">
+    <p class="title">Let's Login</p>
+    <p class="text-base">And start taking notes!</p>
+    <p v-if="errorMsg" class="">
+      {{ errorMsg }}
     </p>
-  </form>
+    <form @submit.prevent="signIn" class="form-container">
+      <div class="form-section">
+        <label class="text-medium" for="">Email Address</label>
+        <input
+          class="input text-base"
+          type="email"
+          placeholder="example@gmail.com"
+          v-model="email"
+          id="email"
+        />
+      </div>
+      <div class="form-section">
+        <label class="text-medium" for="">Password</label>
+
+        <div class="">
+          <input
+            class="input text-base"
+            :type="passwordFieldType"
+            onpaste="return false"
+            placeholder="************"
+            v-model="password"
+            id="password"
+          />
+          <span class="">
+            <EyeIcon
+              :class="[passwordFieldIcon]"
+              @click.prevent="hidePassword = !hidePassword"
+            />
+          </span>
+        </div>
+      </div>
+
+      <button class="button text-medium" type="submit">Login</button>
+      <p class="text-medium">
+        <span class="text-medium purple">Don’t have any account? </span>
+
+        <PersonalRouter class="text-medium purple" :route="route" :buttonText="buttonText" />
+      </p>
+    </form>
+  </div>
 </template>
 
 <script setup>
@@ -54,7 +57,7 @@ import { storeToRefs } from "pinia";
 
 // Route Variables
 const route = "/auth/sign-up";
-const buttonText = "Test the Sign Up Route";
+const buttonText = "Register here";
 
 // Input Fields
 const email = ref("");
@@ -91,27 +94,65 @@ const signIn = async () => {
 </script>
 
 <style>
-.sign-in-text {
-  color: black;
-}
-
-.form {
+.layout {
   display: flex;
   flex-direction: column;
-  margin: 1rem 0;
+  align-items: flex-start;
+}
+.title {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 120%;
+  color: #180e25;
+  margin-top: 30px;
+  margin-bottom: 16px;
+}
+.text-base {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #827d89;
+}
+.text-medium {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  color: #180e25;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  width: 100%;
+  height: 372px;
+}
+.form-section {
+  width: 100%;
+  margin-top: 32px;
 }
 .input {
-  color: black;
-  margin-bottom: 1rem;
+  flex: none;
+  align-self: center;
+  flex-grow: 0;
+  background: #ffffff;
+  border: 1px solid #c8c5cb;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 12px;
+  width: 100%;
+  color: #c8c5cb;
 }
 .button {
-  background-color: #4caf50; /* Green */
+  background: #6a3ea1;
   border: none;
-  color: white;
-  padding: 10px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+  border-radius: 100px;
+  width: 100%;
+  padding: 16px;
+  color: #ffffff;
+  margin: 40px 0;
+}
+.purple {
+  color: #6a3ea1;
 }
 </style>
