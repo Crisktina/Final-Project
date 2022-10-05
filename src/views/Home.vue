@@ -1,15 +1,9 @@
 <template>
-
-
-  <div id="flexbox">
-    <div class="flexbox_element">
-      <div>You are signed up as {{ userName }}</div>
-
-      <NewTask @childNewTask="sendToStore" />
-      <br />
-      <p>Total tasks: {{ taskArray.length }}</p>
-    </div>
-    <div id="todoTasks" class="flexbox_element">
+<Nav />
+  <div >
+    <!-- TO-DO-TASKS -->
+    <div class="layout">
+      <p class="text-base">ACTIVE TASKS: {{ taskArray.length }}</p>
       <TodoTasks />
       <ol>
         <TaskItem
@@ -19,34 +13,43 @@
         ></TaskItem>
       </ol>
     </div>
-    <div id="doneTasks" class="flexbox_element"><DoneTasks /></div>
+  <hr>
+    <!-- DONE-TASKS -->
+    <div class="layout">
+      <!-- falta taskArray poner las que ya estan completed -->
+      <p class="text-base">COMPLETED TASKS: {{ taskArray.length }}</p>
+      <DoneTasks />
+    </div>
+    <!-- NEW-TASK -->
+    <div class="">
+      <NewTask @childNewTask="sendToStore" />
+      <br />
+    </div>
   </div>
-
-  
 </template>
 
 <script setup>
-import {ref} from "vue";
-
-import { useTaskStore } from "../stores/task.js";
+// 1. ref() is used here!
+import { ref } from "vue";
+// 2. (NewTask, TaskItem, Footer, Nav) components are used here! 
+import Nav from "../components/Nav.vue";
 import NewTask from "@/components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
+
 import TodoTasks from "../components/TodoTasks.vue";
 import DoneTasks from "../components/DoneTasks.vue";
-
-//coger el email del usuario
-
-import { useUserStore } from "@/stores/user.js";
-let userName = ref(useUserStore().user.email);
+import { useTaskStore } from "../stores/task.js";
 
 // nos definimos la tienda del usuario dentro de una constante
 const taskStore = useTaskStore();
+
+// 3. Tasks are going to be contained in an array here!
 // Inicializamos array de tareas
 let taskArray = ref([]);
 
 async function readFromStore() {
   taskArray.value = await taskStore.fetchTasks();
-};
+}
 
 readFromStore();
 
@@ -54,30 +57,22 @@ readFromStore();
 async function sendToStore(title, description) {
   await taskStore.addTask(title, description);
   readFromStore();
-};
-// async function readAll() {
-//   let { data: tasks, error } = await supabase.from("tasks").select("*");
-// }
-// readAll();
+}
+
+// 4. An async function is needed to get all of the tasks stored within the supabase database, this async function's body will contain the tasks value which be use to store the fetchTasks method which lives inside the userTaskStore. This function needs to be called within the setUp script in order to run within the first instance of this component lifecycle.
+async function readAll() {
+  let { data: tasks, error } = await supabase.from("tasks").select("*");
+}
+readAll();
 </script>
 
 <style scoped>
-#todoTasks {
-  background-color: rgb(33, 35, 118);
-  color: white;
-};
-#doneTasks {
-  background-color: rgb(41, 93, 41);
-  color: white;
-};
+
 </style>
 
 <!-- 
 **Hints**
-1. ref() is used here!
-2. (NewTask, TaskItem, Footer, Nav) components are used here! 
-3. Tasks are going to be contained in an array here!
-4. An async function is needed to get all of the tasks stored within the supabase database, this async function's body will contain the tasks value which be use to store the fetchTasks method which lives inside the userTaskStore. This function needs to be called within the setUp script in order to run within the first instance of this component lifecycle.
+
 5. NewTask component will receive a customEvent on this instance of the homeView that will fire the add-to-do function
 6. add-to-do function will receive 2 params/arguments that will tak a taskTitle and a taskDescription and the body of this async function will call the taskStore that calls the addTask function from the store that pushes the info of the task to the backEnd. This is possible by passing the 2 param/arguments that will be passed by the user from the inputs within the NewTask Component. 
 7. TaskItem component will loop through the tasks-array that will print an individual instance of an individual TaskItem component. TaskItem will receive 3 customEvents on this instance of the homeView. 1 customEvent for toggling the task to show either a text or an icon to display if the task is completed or not completed. 1 customEevent for removing/deleting the task out of the array. 1 customEvent for editing the task title and description. This function needs to call the function mentioned on hint4.

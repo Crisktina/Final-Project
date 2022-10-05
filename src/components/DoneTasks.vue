@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>💪DONE</h2>
+    <h2>configurar tareas hechas</h2>
   </div>
 </template>
 
@@ -9,4 +9,8 @@ export default {};
 </script>
 
 <style>
+.doneTasks {
+  background-color: #DAF6E4;
+  color: #1F7F40;
+}
 </style>

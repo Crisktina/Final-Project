@@ -4,8 +4,8 @@ import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
 import { useUserStore } from "./stores/user.js";
 import { ref } from "vue";
-import Nav from "./components/Nav.vue";
-import Footer from "./components/Footer.vue"
+
+// import Footer from "./components/Footer.vue";
 
 const router = useRouter();
 const userStore = useUserStore();
@@ -31,9 +31,9 @@ onMounted(async () => {
 
 <template>
   <div>
-    <Nav />
+    
     <router-view />
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 

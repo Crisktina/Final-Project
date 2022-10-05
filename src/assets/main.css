@@ -113,6 +113,19 @@ a,
 }
 
 
+/* NAV */
+
+.button-log-out {
+    background: #C8C5CB;
+    border: none;
+    border-radius: 100px;
+    width: auto;
+    padding: 14px;
+    color: #ffffff;
+    margin: 40px 0;
+}
+
+
 /* --------VERSIÓN DESKTOP-------- */
 
 @media (min-width: 1024px) {

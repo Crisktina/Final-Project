@@ -1,8 +1,14 @@
 <template>
-  <div><a href="">Task-it App</a></div>
+  <div class=""><a href="">Task-it</a></div>
+  <div>Welcome {{ userName }}</div>
+  <button class="button-log-out text-medium" type="submit">Log Out</button>
 </template>
 
 <script setup>
+import { ref } from "vue";
+//coger el email del usuario
+import { useUserStore } from "@/stores/user.js";
+let userName = ref(useUserStore().user.email);
 //constant to save a variable that will hold the use router method
 
 // constant to save a variable that will get the user from store with a computed function imported from vue
@@ -14,4 +20,6 @@
 // async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
 </script>
 
-<style></style>
+<style>
+
+</style>

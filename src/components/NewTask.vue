@@ -1,22 +1,23 @@
 <template>
-<div>
-    <h2>Create task</h2>
-    <br />
+<div class="layout">
+    <button class="button text-medium" @click.prevent="uploadTask">+</button>
+    
     <input
+    class="input text-base"
       v-model="taskTitle"
       type="text"
       id="newTaskTitle"
-      placeholder="Title"
-    /><br /><br />
+      placeholder="New task title..."
+    />
 
     <input
+    class="input text-base"
       v-model="taskDesc"
       type="text"
       id="newTaskDesc"
-      placeholder="Description"
-    /><br /><br />
+      placeholder="Description..."
+    />
 
-    <button @click.prevent="uploadTask">Create</button>
   </div>
   <div>
     <h3 v-if="errorBool">{{ emptyString }}</h3>
@@ -56,8 +57,8 @@ function uploadTask() {
 //     {
 //       user_id: "5fa3d22c-892b-44fc-a3a6-efc7e5503032",
 //       title: taskTitle.value,
-//       description: taskDesc.value,
 //       is_complete: false,
+//       description: taskDesc.value,
 //     },
 //   ]);
 // }
