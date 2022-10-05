@@ -54,3 +54,9 @@ Empezar a aplicar los estilos.
 
 ### Day 3
 Continuar aplicando los estilos.
+Acabados los estilos de Login y Register.
+Home estilos casi acabados. Falta arreglar algunas cosas del position del nav, del add new task y el scroll de las tasks.
+### Day 4
+Arreglar problemillas de los estilos del home.
+Hacer que las tasks se puedan borrar y poner como completed.
+Log out button funcional.
