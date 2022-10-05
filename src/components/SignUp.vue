@@ -49,7 +49,7 @@
         </span>
       </div>
       <button class="button text-medium" type="submit">Register</button>
-      <p class="text-medium">
+      <p class="centered">
         <span class="text-medium purple">Already have an account?</span>
         <PersonalRouter class="text-medium purple" :route="route" :buttonText="buttonText" />
       </p>
@@ -98,5 +98,5 @@ async function signUp() {
 </script>
 
 <style>
-/* styles in SignIn */
+/* @import "../assets/main.css"; */
 </style>

@@ -50,6 +50,7 @@ Aplicar mejor lo hecho en la tarde anterior.
 Planificar en kanban.
 Busqueda de inspiración para el diseño.
 Crear el template con Figma.
-Empezar a estructurar los estilos.
+Empezar a aplicar los estilos.
 
 ### Day 3
+Continuar aplicando los estilos.
