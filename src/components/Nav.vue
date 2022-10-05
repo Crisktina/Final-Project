@@ -1,7 +1,9 @@
 <template>
+<div class="nav-layout">
   <div class=""><a href="">Task-it</a></div>
-  <div>Welcome {{ userName }}</div>
-  <button class="button-log-out text-medium" type="submit">Log Out</button>
+  <div class="text-base small-text">{{ userName.toUpperCase().substring(0, userName.indexOf('@')) }}</div>
+  <button class="button-log-out text-medium" type="submit"></button>
+  </div>
 </template>
 
 <script setup>

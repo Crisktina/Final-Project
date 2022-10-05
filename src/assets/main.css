@@ -11,8 +11,9 @@
 #app {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1.3rem;
     font-weight: normal;
+    background-color: #FAF8FC;
 }
 
 a,
@@ -56,6 +57,28 @@ a,
     font-size: 16px;
     line-height: 140%;
     color: #180e25;
+}
+
+.small-text {
+    font-size: 12px;
+}
+
+.margin-text {
+    margin: 20px 0;
+}
+
+.hr-purple {
+    border: #6A3EA1 solid 1px;
+    opacity: 0.25;
+}
+
+.hr-grey {
+    border: #827d89 solid 1px;
+    opacity: 0.25;
+}
+
+ol {
+    list-style-type: none;
 }
 
 
@@ -115,14 +138,27 @@ a,
 
 /* NAV */
 
+.nav-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
 .button-log-out {
-    background: #C8C5CB;
+    background-image: url(/src/assets/logOutIcon.svg);
+    background-position: 61% 50%;
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-color: #C8C5CB;
     border: none;
     border-radius: 100px;
     width: auto;
-    padding: 14px;
+    height: auto;
+    padding: 21px;
     color: #ffffff;
-    margin: 40px 0;
 }
 
 
@@ -159,6 +195,64 @@ a,
     background: #6A3EA1;
     opacity: 0.9;
     box-shadow: 3px 0px 30px #3A2258;
+}
+
+
+/* TASK */
+
+.task-layout {
+    display: grid;
+    justify-items: stretch;
+    grid-template-columns: 12fr 1fr;
+}
+
+.icons-task-alignment {
+    display: grid;
+    justify-content: end;
+}
+
+.taskItem {
+    background-color: #fdebab;
+    color: #6a3ea1;
+    border-radius: 8px;
+}
+
+.check-title-alignment {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.icons-task {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-color: #FAF8FC;
+    border: none;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    color: #C8C5CB;
+}
+
+.button-x-icon {
+    background-image: url(/src/assets/xIcon.svg);
+    background-size: 15px;
+}
+
+.button-modify {
+    background-image: url(/src/assets/modifyIcon.svg);
+    background-size: 20px;
+}
+
+.check-icon-done {
+    background-image: url(/src/assets/checkIcon.svg);
+    background-size: 15px;
+    border-radius: 100px;
+    background-color: #6a3ea1;
+    color: #C8C5CB;
+    padding: 13px;
 }
 
 
