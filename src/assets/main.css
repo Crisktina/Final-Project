@@ -30,7 +30,7 @@ a,
 }
 
 
-/* --------VERSIÓN MOVILE-------- */
+/* --------MOVILE FIRST-------- */
 
 
 /* General text */
@@ -123,6 +123,42 @@ a,
     padding: 14px;
     color: #ffffff;
     margin: 40px 0;
+}
+
+
+/* NEW TASK */
+
+.button-add-task {
+    background-image: url(/src/assets/newTaskPlus.svg);
+    background-position: 50% 50%;
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-color: #6a3ea1;
+    border: 10px solid #FAF8FC;
+    border-radius: 100px;
+    padding: 35px;
+    width: auto;
+    height: auto;
+    position: absolute;
+    order: 0;
+    flex-grow: 0;
+    left: 40vw;
+    right: 40vw;
+    bottom: 152px;
+    box-shadow: 0px 0px 30px #3A2258;
+}
+
+.caja {
+    /* Box */
+    position: absolute;
+    height: 152px;
+    left: 0px;
+    right: 0px;
+    bottom: 106px;
+    /* Primary/Base */
+    background: #6A3EA1;
+    opacity: 0.9;
+    box-shadow: 3px 0px 30px #3A2258;
 }
 
 

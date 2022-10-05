@@ -49,7 +49,7 @@ Repasar la logica ya escrita en el proyecto.
 Aplicar mejor lo hecho en la tarde anterior.
 Planificar en kanban.
 Busqueda de inspiración para el diseño.
-Crear el template con Figma.
+Crear el template con Figma. https://www.figma.com/file/q1C07Z615DXy62XvE5zMiE/UI-Kit-(taskit)?node-id=936%3A13105
 Empezar a aplicar los estilos.
 
 ### Day 3

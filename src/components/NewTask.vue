@@ -1,6 +1,6 @@
 <template>
 <div class="layout">
-    <button class="button text-medium" @click.prevent="uploadTask">+</button>
+    <button class="button-add-task title" @click.prevent="uploadTask"></button>
     
     <input
     class="input text-base"
