@@ -1,6 +1,6 @@
 <template>
 <div class="nav-layout">
-  <div class=""><a href="">Task-it</a></div>
+  <img class="logo" src="/src/assets/logo.svg" alt="Task-it logo">
   <div class="text-base small-text">{{ userName.toUpperCase().substring(0, userName.indexOf('@')) }}</div>
   <button class="button-log-out text-medium" type="submit"></button>
   </div>

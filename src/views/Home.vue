@@ -1,6 +1,7 @@
 <template>
     <Nav />
     <!-- TO-DO-TASKS -->
+    <div class="scroll-layout">
     <div class="layout">
       <p class="text-base small-text margin-text">ACTIVE TASKS: {{ taskArray.length }}</p>
       <TodoTasks />
@@ -18,6 +19,7 @@
       <!-- falta taskArray poner las que ya estan completed -->
       <p class="text-base small-text margin-text">COMPLETED TASKS: {{ taskArray.length }}</p>
       <DoneTasks />
+    </div>
     </div>
     <!-- NEW-TASK -->
     <div class="">

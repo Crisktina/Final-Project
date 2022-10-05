@@ -3,16 +3,16 @@
     <div class="taskItem">
       <li>
         <div class="check-title-alignment">
-        <button class="check-icon-done icons-task"></button>
-        <b>{{ taskData.title }} </b>
+          <button class="check-icon-done icons-task"></button>
+          <b class="text-medium-bold">{{ taskData.title }} </b>
         </div>
         <hr class="hr-purple" />
-        <i> {{ taskData.description }}</i>
+        <p class="text-base task-text purple">{{ taskData.description }}</p>
       </li>
     </div>
     <div class="icons-task-alignment">
-    <button class="icons-task button-x-icon"></button>
-    <button class="icons-task button-modify"></button>
+      <button class="icons-task button-x-icon"></button>
+      <button class="icons-task button-modify"></button>
     </div>
   </div>
 </template>

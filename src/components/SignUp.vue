@@ -1,4 +1,7 @@
 <template>
+<div class="center-logo-login">
+<img class="logo-sign" src="/src/assets/logo.svg" alt="Task-it logo">
+</div>
   <div class="layout">
     <p class="title">Register</p>
     <p class="text-base">And start taking notes!</p>
@@ -9,7 +12,7 @@
       <div class="form-section">
         <label class="text-medium" for="">Email Address</label>
         <input
-          class="input text-base"
+          class="input-form text-base"
           type="email"
           placeholder="user@email.com"
           v-model="email"
@@ -19,7 +22,7 @@
       <div class="form-section">
         <label class="text-medium" for="">Password</label>
         <input
-          class="input text-base"
+          class="input-form text-base"
           type="password"
           placeholder="************"
           v-model="password"
@@ -35,7 +38,7 @@
       <div class="form-section">
         <label class="text-medium" for="">Confirm Password</label>
         <input
-          class="input text-base"
+          class="input-form text-base"
           type="password"
           placeholder="************"
           v-model="confirmPassword"

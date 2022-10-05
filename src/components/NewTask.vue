@@ -1,29 +1,26 @@
 <template>
-<div class="layout">
-    <button class="button-add-task title" @click.prevent="uploadTask"></button>
-    
+  <button class="button-add-task" @click.prevent="uploadTask"></button>
+  <div class="new-task-box">
     <input
-    class="input text-base"
+      class="input-task-up text-medium-bold text-imput"
       v-model="taskTitle"
       type="text"
       id="newTaskTitle"
       placeholder="New task title..."
     />
-
+    <hr class="hr-purple-new-task" />
     <input
-    class="input text-base"
+      class="input-task-under text-base text-imput"
       v-model="taskDesc"
       type="text"
       id="newTaskDesc"
       placeholder="Description..."
     />
-
   </div>
   <div>
     <h3 v-if="errorBool">{{ emptyString }}</h3>
   </div>
 </template>
-
 
 <script setup>
 import { ref } from "vue";
@@ -75,6 +72,5 @@ function uploadTask() {
 
 // arrow function to call the form holding the task title and task description that uses a conditional to first checks if the task title is empty, if true the error message is displayed through the errorMessage container and sets a timeOut method that hides the error after some time. Else, its emmits a custom event to the home view with the task title and task description; clears the task title and task description input fields.
 </script>
-
 
 <style></style>
