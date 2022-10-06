@@ -3,15 +3,22 @@
     <div class="taskItem">
       <li>
         <div class="check-title-alignment">
-          <button class="check-icon-done icons-task"></button>
+          <button
+            @click="completedTask"
+            :class="iconChange ? 'blue' : 'red'"
+            class="check-icon-done icons-task"
+          ></button>
           <b class="text-medium-bold">{{ taskData.title }} </b>
         </div>
         <hr class="hr-purple" />
         <p class="text-base task-text purple">{{ taskData.description }}</p>
+        <p class="text-base task-text purple">
+          {{ taskData.is_complete ? "Completed" : "Not Completed" }}
+        </p>
       </li>
     </div>
     <div class="icons-task-alignment">
-      <button class="icons-task button-x-icon"></button>
+      <button @click="deleteTask" class="icons-task button-x-icon"></button>
       <button class="icons-task button-modify"></button>
     </div>
   </div>
@@ -19,15 +26,38 @@
 
 <script setup>
 import { ref, reactive } from "vue";
-// const emit = defineEmits([
-//   ENTER-EMITS-HERE
-// ])
 
 // const props = defineProps(["ENTER-PROP-HERE"]);
 const props = defineProps(["taskData"]);
+
+// const emit = defineEmits([ENTER-EMITS-HERE])
+const emit = defineEmits(["deleteTaskChildren", "completedTaskChildren"]);
+// function deleteTask() {
+//    emit("deleteTaskChildren", props.taskData.id);
+// }
+const deleteTask = () => {
+  emit("deleteTaskChildren", props.taskData.id);
+};
+console.log(deleteTask);
+
+const iconChange = ref("");
+// función para completar task
+const completedTask = () => {
+  emit("completedTaskChildren", props.taskData.id);
+  iconChange.value = !iconChange.Value;
+};
+console.log(completedTask);
 </script>
 
-<style></style>
+<style>
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+</style>
 
 <!-- 
 **Hints**

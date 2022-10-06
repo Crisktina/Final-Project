@@ -26,11 +26,11 @@ export const useTaskStore = defineStore("tasks", {
             }, ]);
         },
 
-        async completeTask(taskID) {
+        async completeTask(id) {
             const { data, error } = await supabase
                 .from("tasks")
-                .update({ is_complete: true })
-                .eq("id", taskID);
+                .update({ is_complete: !this.is_complete })
+                .match({ id: id });
         },
 
         async deleteAllTasks() {
@@ -39,5 +39,18 @@ export const useTaskStore = defineStore("tasks", {
                 .delete()
                 .eq("is_complete", false);
         },
+
+        // función para borrar task de la data de supabase
+        async deleteOneTask(taskId) {
+            const { data, error } = await supabase
+                .from("tasks")
+                .delete()
+                .match({ id: taskId });
+        },
     },
 });
+
+// const { data, error } = await supabase
+//   .from('cities')
+//   .delete()
+//   .match({ id: 666 })

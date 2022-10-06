@@ -1,39 +1,43 @@
 <template>
-    <Nav />
-    <!-- TO-DO-TASKS -->
-    <div class="scroll-layout">
+  <Nav />
+  <!-- TO-DO-TASKS -->
+  <div class="scroll-layout">
     <div class="layout">
-      <p class="text-base small-text margin-text">ACTIVE TASKS: {{ taskArray.length }}</p>
+      <p class="text-base small-text margin-text">
+        ACTIVE TASKS: {{ taskArray.length }}
+      </p>
       <TodoTasks />
       <ol>
         <TaskItem
-          v-for="(task, index) in taskArray"
+          @deleteTaskChildren="deleteTaskFather"
+          @completedTaskChildren="completeTaskFather"
+          v-for="(task, index) in taskStore.tasks"
           :key="index"
           :taskData="task"
         ></TaskItem>
       </ol>
     </div>
-  <hr class="hr-grey" />
+    <hr class="hr-grey" />
     <!-- DONE-TASKS -->
     <div class="layout">
       <!-- falta taskArray poner las que ya estan completed -->
-      <p class="text-base small-text margin-text">COMPLETED TASKS: {{ taskArray.length }}</p>
+      <p class="text-base small-text margin-text">
+        COMPLETED TASKS: {{ taskArray.length }}
+      </p>
       <DoneTasks />
     </div>
-    </div>
-    <!-- NEW-TASK -->
-    <div class="">
-      <NewTask @childNewTask="sendToStore" />
-      <br />
-    </div>
-
-
+  </div>
+  <!-- NEW-TASK -->
+  <div class="">
+    <NewTask @childNewTask="sendToStore" />
+    <br />
+  </div>
 </template>
 
 <script setup>
 // 1. ref() is used here!
-import { ref } from "vue";
-// 2. (NewTask, TaskItem, Footer, Nav) components are used here! 
+import { ref, onMounted } from "vue";
+// 2. (NewTask, TaskItem, Footer, Nav) components are used here!
 import Nav from "../components/Nav.vue";
 import NewTask from "@/components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
@@ -41,6 +45,7 @@ import TaskItem from "../components/TaskItem.vue";
 import TodoTasks from "../components/TodoTasks.vue";
 import DoneTasks from "../components/DoneTasks.vue";
 import { useTaskStore } from "../stores/task.js";
+import { supabase } from "../supabase";
 
 // nos definimos la tienda del usuario dentro de una constante
 const taskStore = useTaskStore();
@@ -49,16 +54,19 @@ const taskStore = useTaskStore();
 // Inicializamos array de tareas
 let taskArray = ref([]);
 
+onMounted(() => {
+  taskStore.fetchTasks();
+});
+
 async function readFromStore() {
   taskArray.value = await taskStore.fetchTasks();
 }
-
 readFromStore();
 
 // Enviamos los datos de la tarea a la Tienda taskStore
 async function sendToStore(title, description) {
   await taskStore.addTask(title, description);
-  readFromStore();
+  taskStore.fetchTasks();
 }
 
 // 4. An async function is needed to get all of the tasks stored within the supabase database, this async function's body will contain the tasks value which be use to store the fetchTasks method which lives inside the userTaskStore. This function needs to be called within the setUp script in order to run within the first instance of this component lifecycle.
@@ -66,11 +74,22 @@ async function readAll() {
   let { data: tasks, error } = await supabase.from("tasks").select("*");
 }
 readAll();
+
+// function para borrar Task
+const deleteTaskFather = async (deleteId) => {
+  await taskStore.deleteOneTask(deleteId);
+  taskStore.fetchTasks();
+};
+
+//function para completed Task
+
+const completeTaskFather = async (id) => {
+  await taskStore.completeTask(id);
+  taskStore.fetchTasks();
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
 
 <!-- 
 **Hints**
