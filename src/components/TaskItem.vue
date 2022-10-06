@@ -41,6 +41,7 @@ const deleteTask = () => {
 console.log(deleteTask);
 
 const iconChange = ref("");
+
 // función para completar task
 const completedTask = () => {
   emit("completedTaskChildren", props.taskData.id);

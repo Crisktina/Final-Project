@@ -187,6 +187,12 @@ ol {
     height: auto;
     padding: 21px;
     color: #ffffff;
+    cursor: pointer;
+}
+
+.button-log-out:hover {
+    background-color: #6a3ea1;
+    /* box-shadow: 0px 0px 10px 0px #3a2258; */
 }
 
 .logo {
@@ -226,6 +232,11 @@ ol {
     left: 40vw;
     right: 40vw;
     bottom: 125px;
+    cursor: pointer;
+}
+
+.button-add-task:hover {
+    background-color: #3a2258;
 }
 
 .new-task-box {
@@ -299,12 +310,11 @@ ol {
 .icons-task {
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-color: #faf8fc;
+    background-color: transparent;
     border: none;
     width: auto;
     height: auto;
     padding: 10px;
-    color: #c8c5cb;
     cursor: pointer;
 }
 
@@ -313,9 +323,18 @@ ol {
     background-size: 15px;
 }
 
+.button-x-icon:hover {
+    background-image: url(/src/assets/xIconRed.svg);
+}
+
 .button-modify {
     background-image: url(/src/assets/modifyIcon.svg);
     background-size: 20px;
+    color: #c8c5cb;
+}
+
+.button-modify:hover {
+    background-image: url(/src/assets/modifyIconGreen.svg);
 }
 
 .check-icon-done {
