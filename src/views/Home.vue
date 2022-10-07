@@ -1,21 +1,17 @@
 <template>
   <Nav />
-  <!-- NEW-TASK -->
-  <div class="">
-    <NewTask @childNewTask="sendToStore" />
-  </div>
   <!-- TO-DO-TASKS -->
-  <div class="scroll-layout">
+  <div class="main-layout">
     <div class="layout">
       <p class="text-base small-text margin-text">
-        ACTIVE TASKS: {{ taskArray.length }}
+        ACTIVE TASKS: {{ taskArrayUndone.length }}
       </p>
-      <TodoTasks />
+      <!-- <TodoTasks /> -->
       <ol>
         <TaskItem
           @deleteTaskChildren="deleteTaskFather"
           @completedTaskChildren="completeTaskFather"
-          v-for="(task, index) in taskStore.tasks"
+          v-for="(task, index) in taskArrayUndone"
           :key="index"
           :taskData="task"
         ></TaskItem>
@@ -24,12 +20,24 @@
     <hr class="hr-grey" />
     <!-- DONE-TASKS -->
     <div class="layout">
-      <!-- falta taskArray poner las que ya estan completed, ahora estan todas a lo bruto -->
       <p class="text-base small-text margin-text">
-        COMPLETED TASKS: {{ taskArray.length }}
+        COMPLETED TASKS: {{ taskArrayCompleted.length }}
       </p>
-      <DoneTasks />
+      <!-- <DoneTasks /> -->
+      <ol>
+        <TaskItem
+          @deleteTaskChildren="deleteTaskFather"
+          @completedTaskChildren="completeTaskFather"
+          v-for="(task, index) in taskArrayCompleted"
+          :key="index"
+          :taskData="task"
+        ></TaskItem>
+      </ol>
     </div>
+  </div>
+  <!-- NEW-TASK -->
+  <div class="menu-add-task">
+    <NewTask @childNewTask="sendToStore" />
   </div>
 </template>
 
@@ -51,14 +59,16 @@ const taskStore = useTaskStore();
 
 // 3. Tasks are going to be contained in an array here!
 // Inicializamos array de tareas
-let taskArray = ref([]);
+const taskArrayUndone = ref([]);
+const taskArrayCompleted = ref([]);
 
 onMounted(() => {
   taskStore.fetchTasks();
 });
 
 async function readFromStore() {
-  taskArray.value = await taskStore.fetchTasks();
+  taskArrayUndone.value = await taskStore.fetchTasksTrue(false);
+  taskArrayCompleted.value = await taskStore.fetchTasksTrue(true);
 }
 readFromStore();
 

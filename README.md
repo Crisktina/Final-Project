@@ -68,6 +68,6 @@ Log out button funcional.
 
 ### Day 5
 
+Poner las tasks ordenadas según Active o completed.
 Tasks como completed, arreglar activar/desactivar.
 Modify tasks.
-Poner las tasks ordenadas según Active o completed.

@@ -1,25 +1,29 @@
 <template>
   <div class="task-layout">
-    <div :class="taskChange ? 'taskItem-done' : 'taskItem-active'">
+    <div :class="taskData.is_complete ? 'taskItem-done' : 'taskItem-active'">
       <li>
         <div class="check-title-alignment">
           <button
             @click="completedTask"
-            :class="taskChange ? 'check-icon-done' : 'check-icon-active'"
+            :class="
+              taskData.is_complete ? 'check-icon-done' : 'check-icon-active'
+            "
           ></button>
           <b
-            :class="taskChange ? 'text-medium-bold-done' : 'text-medium-bold'"
+            :class="
+              taskData.is_complete
+                ? 'text-medium-bold-done'
+                : 'text-medium-bold'
+            "
             class="text-medium-bold"
             >{{ taskData.title }}
           </b>
         </div>
         <hr class="hr-purple" />
-        <p :class="taskChange ? 'task-text-done' : 'task-text-active'">
+        <p
+          :class="taskData.is_complete ? 'task-text-done' : 'task-text-active'"
+        >
           {{ taskData.description }}
-        </p>
-        <!-- borrar? texto que indica si esta completo o no el task -->
-        <p class="task-text-active">
-          {{ taskData.is_complete ? "Completed" : "Not Completed" }}
         </p>
       </li>
     </div>
@@ -45,17 +49,13 @@ const emit = defineEmits(["deleteTaskChildren", "completedTaskChildren"]);
 const deleteTask = () => {
   emit("deleteTaskChildren", props.taskData.id);
 };
-console.log(deleteTask);
 
 // constante para hacer un ternario en el class del button de check completed task
-const taskChange = ref("");
 
 // función para completar task
 const completedTask = () => {
   emit("completedTaskChildren", props.taskData.id);
-  taskChange.value = !taskChange.Value;
 };
-console.log(completedTask);
 </script>
 
 <style></style>
