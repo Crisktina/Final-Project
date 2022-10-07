@@ -17,25 +17,26 @@
     background-size: auto;
 }
 
-a,
-.green {
+a {
     /* poner otro color? */
     text-decoration: none;
     color: #6a3ea1;
     transition: 0.4s;
 }
 
-@media (hover: hover) {
-    a:hover {
-        background-color: hsla(160, 100%, 37%, 0.2);
-    }
+ol {
+    list-style-type: none;
+}
+
+.error-text {
+    color: #ce3a54;
 }
 
 
 /* --------MOVILE FIRST-------- */
 
 
-/* General text */
+/* General */
 
 .title {
     font-weight: 700;
@@ -90,10 +91,6 @@ a,
     border: #827d89 solid 1px;
     opacity: 0.25;
     margin: 16px 0;
-}
-
-ol {
-    list-style-type: none;
 }
 
 .scroll-layout {
@@ -342,9 +339,29 @@ ol {
     background-size: 15px;
     border-radius: 100px;
     background-color: #6a3ea1;
-    color: #c8c5cb;
     padding: 13px;
     margin-right: 10px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    border: none;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+}
+
+.check-icon-no-done {
+    border-radius: 100px;
+    background-color: #faf8fc;
+    padding: 13px;
+    margin-right: 10px;
+    border: 1px solid #c8c5cb;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.check-icon-no-done:hover {
+    border: 1px solid #6a3ea1;
 }
 
 .task-text {

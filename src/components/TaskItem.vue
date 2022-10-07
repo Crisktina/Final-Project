@@ -3,15 +3,13 @@
     <div class="taskItem">
       <li>
         <div class="check-title-alignment">
-          <button
-            @click="completedTask"
-            :class="iconChange ? 'blue' : 'red'"
-            class="check-icon-done icons-task"
-          ></button>
+          <!-- :class="iconChange ? 'check-icon-done' : 'check-icon-no-done'" -->
+          <button @click="completedTask" class="check-icon-no-done"></button>
           <b class="text-medium-bold">{{ taskData.title }} </b>
         </div>
         <hr class="hr-purple" />
         <p class="text-base task-text purple">{{ taskData.description }}</p>
+        <!-- borrar? texto que indica si esta completo o no el task -->
         <p class="text-base task-text purple">
           {{ taskData.is_complete ? "Completed" : "Not Completed" }}
         </p>
@@ -25,6 +23,7 @@
 </template>
 
 <script setup>
+// 1. ref() or reactive() can be used here to store the following, think if you want to store them either individually or like an object, up to you.
 import { ref, reactive } from "vue";
 
 // const props = defineProps(["ENTER-PROP-HERE"]);
@@ -40,6 +39,7 @@ const deleteTask = () => {
 };
 console.log(deleteTask);
 
+// constante para hacer un ternario en el class del button de check completed task
 const iconChange = ref("");
 
 // función para completar task
@@ -50,19 +50,11 @@ const completedTask = () => {
 console.log(completedTask);
 </script>
 
-<style>
-.blue {
-  background-color: blue;
-}
-
-.red {
-  background-color: red;
-}
-</style>
+<style></style>
 
 <!-- 
 **Hints**
-1. ref() or reactive() can be used here to store the following, think if you want to store them either individually or like an object, up to you.
+
 2. Data properties need here are the following: a boolean to store a false**Important variable, a string to store an error, a string to store the value of the task that the user can edit, an initial false boolean to hide the inputFIeld used to edit the new task detail or details[this is in reference of the task title and the task description].
 3. Store the custom emit events that will be used to call the functions of the homeView for editing, deleting and toggling the status[completed, not complted] of the taskItem.
 4. Function to handle the error with the data properties used to control the error and the boolean controlling the boolean empty variable.

@@ -1,5 +1,9 @@
 <template>
   <Nav />
+  <!-- NEW-TASK -->
+  <div class="">
+    <NewTask @childNewTask="sendToStore" />
+  </div>
   <!-- TO-DO-TASKS -->
   <div class="scroll-layout">
     <div class="layout">
@@ -20,17 +24,12 @@
     <hr class="hr-grey" />
     <!-- DONE-TASKS -->
     <div class="layout">
-      <!-- falta taskArray poner las que ya estan completed -->
+      <!-- falta taskArray poner las que ya estan completed, ahora estan todas a lo bruto -->
       <p class="text-base small-text margin-text">
         COMPLETED TASKS: {{ taskArray.length }}
       </p>
       <DoneTasks />
     </div>
-  </div>
-  <!-- NEW-TASK -->
-  <div class="">
-    <NewTask @childNewTask="sendToStore" />
-    <br />
   </div>
 </template>
 

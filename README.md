@@ -65,3 +65,9 @@ Home estilos casi acabados. Falta arreglar algunas cosas del position del nav, d
 Arreglar problemillas de los estilos del home.
 Hacer que las tasks se puedan borrar y poner como completed.
 Log out button funcional.
+
+### Day 5
+
+Tasks como completed, arreglar.
+Modify tasks.
+Poner las tasks ordenadas según Active o completed.

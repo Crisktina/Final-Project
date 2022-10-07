@@ -1,5 +1,7 @@
 <template>
-
+  <div>
+    <h3 class="error-text" v-if="errorBool">{{ emptyString }}</h3>
+  </div>
   <button class="button-add-task" @click.prevent="uploadTask"></button>
   <div class="new-task-box">
     <input
@@ -18,9 +20,6 @@
       placeholder="Description..."
     />
   </div>
-  <div>
-    <h3 v-if="errorBool">{{ emptyString }}</h3>
-  </div>
 </template>
 
 <script setup>
@@ -38,7 +37,7 @@ const emptyString = ref("");
 function uploadTask() {
   if (taskTitle.value === "") {
     errorBool.value = true;
-    emptyString.value = "Title is required.";
+    emptyString.value = "Title is required!";
     setTimeout(() => {
       errorBool.value = false;
     }, 1000);
