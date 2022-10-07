@@ -289,12 +289,6 @@ ol {
     align-content: stretch;
 }
 
-.taskItem {
-    background-color: #fdebab;
-    color: #6a3ea1;
-    border-radius: 8px;
-}
-
 .check-title-alignment {
     display: flex;
     justify-content: flex-start;
@@ -334,6 +328,49 @@ ol {
     background-image: url(/src/assets/modifyIconGreen.svg);
 }
 
+
+/* task active */
+
+.taskItem-active {
+    background-color: #fdebab;
+    color: #6a3ea1;
+    border-radius: 8px;
+}
+
+.check-icon-active {
+    border-radius: 100px;
+    background-color: #faf8fc;
+    padding: 13px;
+    margin-right: 10px;
+    border: 1px solid #c8c5cb;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.check-icon-active:hover {
+    border: 1px solid #6a3ea1;
+    box-shadow: 0px 0px 10px 0px #3a2258;
+}
+
+.task-text-active {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: #6a3ea1;
+    opacity: 0.75;
+    padding: 0px 12px 13px 12px;
+}
+
+
+/* task done */
+
+.taskItem-done {
+    background-color: #daf6e4;
+    color: #1f7f40;
+    border-radius: 8px;
+}
+
 .check-icon-done {
     background-image: url(/src/assets/checkIcon.svg);
     background-size: 15px;
@@ -349,24 +386,22 @@ ol {
     cursor: pointer;
 }
 
-.check-icon-no-done {
-    border-radius: 100px;
-    background-color: #faf8fc;
-    padding: 13px;
-    margin-right: 10px;
-    border: 1px solid #c8c5cb;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-}
-
-.check-icon-no-done:hover {
-    border: 1px solid #6a3ea1;
-}
-
-.task-text {
+.task-text-done {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: #1f7f40;
     opacity: 0.75;
     padding: 0px 12px 13px 12px;
+    text-decoration: line-through;
+}
+
+.text-medium-bold-done {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 140%;
+    text-decoration: line-through;
+    color: #1f7f40;
 }
 
 
