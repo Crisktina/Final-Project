@@ -6,11 +6,11 @@
       <p class="text-base small-text margin-text">
         ACTIVE TASKS: {{ taskArrayUndone.length }}
       </p>
-      <!-- <TodoTasks /> -->
       <ol>
         <TaskItem
           @deleteTaskChildren="deleteTaskFather"
           @completedTaskChildren="completeTaskFather"
+          @modifyTaskChildren="modifyTaskFather"
           v-for="(task, index) in taskArrayUndone"
           :key="index"
           :taskData="task"
@@ -23,11 +23,11 @@
       <p class="text-base small-text margin-text">
         COMPLETED TASKS: {{ taskArrayCompleted.length }}
       </p>
-      <!-- <DoneTasks /> -->
       <ol>
         <TaskItem
           @deleteTaskChildren="deleteTaskFather"
           @completedTaskChildren="completeTaskFather"
+          @modifyTaskChildren="modifyTaskFather"
           v-for="(task, index) in taskArrayCompleted"
           :key="index"
           :taskData="task"
@@ -49,8 +49,6 @@ import Nav from "../components/Nav.vue";
 import NewTask from "@/components/NewTask.vue";
 import TaskItem from "../components/TaskItem.vue";
 
-import TodoTasks from "../components/TodoTasks.vue";
-import DoneTasks from "../components/DoneTasks.vue";
 import { useTaskStore } from "../stores/task.js";
 import { supabase } from "../supabase";
 
@@ -61,6 +59,7 @@ const taskStore = useTaskStore();
 // Inicializamos array de tareas
 const taskArrayUndone = ref([]);
 const taskArrayCompleted = ref([]);
+const taskArrayModify = ref([]);
 
 onMounted(() => {
   taskStore.fetchTasks();
@@ -69,13 +68,14 @@ onMounted(() => {
 async function readFromStore() {
   taskArrayUndone.value = await taskStore.fetchTasksTrue(false);
   taskArrayCompleted.value = await taskStore.fetchTasksTrue(true);
+  taskArrayModify.value = await taskStore.fetchTasksTrue(true);
 }
 readFromStore();
 
 // Enviamos los datos de la tarea a la Tienda taskStore
 async function sendToStore(title, description) {
   await taskStore.addTask(title, description);
-  taskStore.fetchTasks();
+  readFromStore();
 }
 
 // 4. An async function is needed to get all of the tasks stored within the supabase database, this async function's body will contain the tasks value which be use to store the fetchTasks method which lives inside the userTaskStore. This function needs to be called within the setUp script in order to run within the first instance of this component lifecycle.
@@ -87,14 +87,21 @@ readAll();
 // function para borrar Task
 const deleteTaskFather = async (deleteId) => {
   await taskStore.deleteOneTask(deleteId);
-  taskStore.fetchTasks();
+  readFromStore();
 };
 
 //function para completed Task
 
-const completeTaskFather = async (id) => {
-  await taskStore.completeTask(id);
-  taskStore.fetchTasks();
+const completeTaskFather = async (id, status) => {
+  await taskStore.completeTask(id, status);
+  readFromStore();
+};
+
+//function para modify Task
+
+const modifyTaskFather = async (id) => {
+  await taskStore.modifyTask(id);
+  readFromStore();
 };
 </script>
 

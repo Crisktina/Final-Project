@@ -1,7 +1,4 @@
 <template>
-  <div class="">
-    <h3 class="error-text" v-if="errorBool">{{ emptyString }}</h3>
-  </div>
   <button class="button-add-task" @click.prevent="uploadTask"></button>
   <div class="new-task-box">
     <input
@@ -10,6 +7,9 @@
       type="text"
       placeholder="New task title..."
     />
+    <div class="">
+      <h3 class="error-text" v-if="errorBool">{{ emptyString }}</h3>
+    </div>
     <hr class="hr-purple-new-task" />
     <input
       class="input-task-under text-base text-imput"

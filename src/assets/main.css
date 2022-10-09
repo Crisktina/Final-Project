@@ -28,6 +28,8 @@ ol {
 
 .error-text {
     color: #ce3a54;
+    background-color: #f7dee3;
+    padding: 5px 0px 5px 12px;
 }
 
 
@@ -76,8 +78,7 @@ ol {
 }
 
 .hr-purple {
-    border: #6a3ea1 solid 1px;
-    opacity: 0.25;
+    border: #6a3ea1 solid 0, 01px;
     margin: 8px 0;
 }
 
@@ -353,7 +354,7 @@ ol {
 
 .check-icon-active:hover {
     border: 1px solid #6a3ea1;
-    box-shadow: 0px 0px 10px 0px #3a2258;
+    box-shadow: inset 0px 0px 10px 0px #3a2258;
 }
 
 .task-text-active {

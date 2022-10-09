@@ -29,7 +29,7 @@
     </div>
     <div class="icons-task-alignment">
       <button @click="deleteTask" class="icons-task button-x-icon"></button>
-      <button class="icons-task button-modify"></button>
+      <button @click="modifyTask" class="icons-task button-modify"></button>
     </div>
   </div>
 </template>
@@ -42,7 +42,11 @@ import { ref, reactive } from "vue";
 const props = defineProps(["taskData"]);
 
 // const emit = defineEmits([ENTER-EMITS-HERE])
-const emit = defineEmits(["deleteTaskChildren", "completedTaskChildren"]);
+const emit = defineEmits([
+  "deleteTaskChildren",
+  "completedTaskChildren",
+  "modifyTaskChildren",
+]);
 // function deleteTask() {
 //    emit("deleteTaskChildren", props.taskData.id);
 // }
@@ -50,11 +54,13 @@ const deleteTask = () => {
   emit("deleteTaskChildren", props.taskData.id);
 };
 
-// constante para hacer un ternario en el class del button de check completed task
-
 // función para completar task
 const completedTask = () => {
-  emit("completedTaskChildren", props.taskData.id);
+  emit("completedTaskChildren", props.taskData.id, props.taskData.is_complete);
+};
+
+const modifyTask = () => {
+  emit("modifyTaskChildren", props.taskData.id);
 };
 </script>
 
