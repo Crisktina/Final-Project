@@ -7,14 +7,30 @@
         ACTIVE TASKS: {{ taskArrayUndone.length }}
       </p>
       <ol>
-        <TaskItem
-          @deleteTaskChildren="deleteTaskFather"
-          @completedTaskChildren="completeTaskFather"
-          @modifyTaskChildren="modifyTaskFather"
-          v-for="(task, index) in taskArrayUndone"
-          :key="index"
-          :taskData="task"
-        ></TaskItem>
+        <!-- poner v-if v-else en esta sección -->
+        <div>
+          <TaskItem
+            @deleteTaskChildren="deleteTaskFather"
+            @completedTaskChildren="completeTaskFather"
+            @modifyTaskChildren="modifyTaskFather"
+            v-for="(task, index) in taskArrayUndone"
+            :key="index"
+            :taskData="task"
+          ></TaskItem>
+        </div>
+        <!-- SECTION WITH EMPTY TASKS -->
+        <div class="layout-illustration">
+          <img
+            class="ilustration-tasks"
+            src="src/assets/ilustrationActiveTasks.svg"
+            alt="ilustration about girl with idea"
+          />
+          <h2 class="text-xl-bold">Start Your Journey</h2>
+          <p class="text-base center-text margin-text">
+            Every big step start with small task.<br />
+            Notes your first task and start being organized!
+          </p>
+        </div>
       </ol>
     </div>
     <hr class="hr-grey" />
@@ -32,6 +48,19 @@
           :key="index"
           :taskData="task"
         ></TaskItem>
+        <!-- SECTION WITH EMPTY TASKS -->
+        <div class="layout-illustration">
+          <img
+            class="ilustration-tasks"
+            src="src/assets/ilustrationCompletedTasks.svg"
+            alt="ilustration about girl with idea"
+          />
+          <h2 class="text-xl-bold">No Completed Tasks Yet</h2>
+          <p class="text-base center-text margin-text">
+            Once you finish a task, it will be appeared on this screen. So,
+            let’s start!
+          </p>
+        </div>
       </ol>
     </div>
   </div>
