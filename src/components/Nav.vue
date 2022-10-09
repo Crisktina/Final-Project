@@ -2,7 +2,8 @@
   <div class="nav-layout">
     <img class="logo" src="/src/assets/logo.svg" alt="Task-it logo" />
     <!-- constant that saves the user email and cleans out the @client from the user -->
-    <div class="text-base small-text">
+    <div class="text-base small-text user-name">
+      USER <br />
       {{ userName.toUpperCase().substring(0, userName.indexOf("@")) }}
     </div>
     <button
@@ -11,7 +12,7 @@
       type="submit"
     ></button>
     <div v-if="errorMessageContainer">
-      <p> {{ errorMessage }}</p>
+      <p>{{ errorMessage }}</p>
     </div>
   </div>
 </template>
@@ -50,7 +51,7 @@ async function signOut() {
       errorMessageContainer.value = false;
     }, 2000);
   }
-};
+}
 </script>
 
 <style></style>

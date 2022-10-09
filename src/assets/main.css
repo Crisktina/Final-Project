@@ -15,11 +15,19 @@
     background-size: auto;
 }
 
+body {
+    background-color: #faf8fc;
+}
+
 a {
-    /* poner otro color? */
     text-decoration: none;
     color: #6a3ea1;
-    transition: 0.4s;
+}
+
+a:hover {
+    color: #3a2258;
+    font-weight: 700;
+    text-decoration: underline;
 }
 
 ol {
@@ -37,6 +45,17 @@ ol {
 
 
 /* General */
+
+.main-layout {
+    padding: 1.3rem;
+    box-sizing: border-box;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
 
 .title {
     font-weight: 700;
@@ -78,7 +97,7 @@ ol {
 }
 
 .hr-purple {
-    border: #6a3ea1 solid 0, 01px;
+    border: #6a3ea1 solid 0.01em;
     margin: 8px 0;
 }
 
@@ -87,22 +106,24 @@ ol {
 }
 
 .hr-grey {
-    border: #827d89 solid 1px;
-    opacity: 0.25;
+    border: #827d89 solid 0.01em;
     margin: 16px 0;
-}
-
-.main-layout {
-    padding: 1.3rem;
 }
 
 
 /* SIGN IN & SIGN UP */
 
-.layout {
+.center-logo-login {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+.logo-sign {
+    width: 180px;
+    height: auto;
 }
 
 .form-container {
@@ -117,6 +138,7 @@ ol {
 .form-section {
     width: 100%;
     margin-top: 32px;
+    position: relative;
 }
 
 .input-form {
@@ -124,12 +146,17 @@ ol {
     align-self: center;
     flex-grow: 0;
     background: #ffffff;
-    border: 1px solid #c8c5cb;
+    border: 2px solid #c8c5cb;
     border-radius: 8px;
     padding: 16px;
     margin-top: 12px;
     width: 100%;
-    color: #c8c5cb;
+    color: #6a3ea1;
+    /* box-shadow: 1px 1px 3px 0px #827d89; */
+}
+
+.input-form:hover {
+    border: 2px solid #6a3ea1;
 }
 
 .button {
@@ -142,12 +169,27 @@ ol {
     margin: 40px 0;
 }
 
+.button:hover {
+    background-color: #3a2258;
+}
+
 .purple {
     color: #6a3ea1;
 }
 
 .centered {
     align-self: center;
+}
+
+.eye-icon {
+    background-image: url(/src/assets/eyeIcon.svg);
+    background-size: 20px;
+}
+
+.eye-icon-position {
+    position: absolute;
+    right: 3vw;
+    top: 7.2vw;
 }
 
 
@@ -157,9 +199,8 @@ ol {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
+    /* align-content: center;
+    align-items: center; */
     margin-bottom: 20px;
     background-color: #ffffff;
     padding: 20px 20px;
@@ -169,6 +210,11 @@ ol {
     top: 0;
     left: 0;
     overflow: hidden;
+}
+
+.user-name {
+    justify-self: self-end;
+    text-align: end;
 }
 
 .button-log-out {
@@ -193,19 +239,6 @@ ol {
 
 .logo {
     width: 130px;
-    height: auto;
-}
-
-.center-logo-login {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 60px;
-}
-
-.logo-sign {
-    width: 180px;
     height: auto;
 }
 
@@ -282,15 +315,17 @@ ol {
 .task-layout {
     display: grid;
     justify-items: stretch;
-    grid-template-columns: 12fr 1fr;
+    grid-template-columns: 20fr 1fr;
+    min-width: 100%;
     margin: 16px 0;
 }
 
 .icons-task-alignment {
     display: grid;
-    align-items: start;
-    justify-content: end;
+    align-items: baseline;
     align-content: stretch;
+    justify-content: end;
+    margin-left: 12px;
 }
 
 .check-title-alignment {
@@ -415,12 +450,7 @@ ol {
 
 @media (min-width: 1024px) {
     body {
-        display: flex;
+        display: block;
         place-items: center;
-    }
-    #app {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        padding: 0 2rem;
     }
 }

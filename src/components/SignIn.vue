@@ -1,28 +1,27 @@
 <template>
-<div class="center-logo-login">
-<img class="logo-sign" src="/src/assets/logo.svg" alt="Task-it logo"/>
-</div>
-  <div class="layout">
-    <p class="title">Let's Login</p>
-    <p class="text-base">And start taking notes!</p>
-    <p v-if="errorMsg" class="">
-      {{ errorMsg }}
-    </p>
-    <form @submit.prevent="signIn" class="form-container">
-      <div class="form-section">
-        <label class="text-medium" for="">Email Address</label>
-        <input
-          class="input-form text-base"
-          type="email"
-          placeholder="example@gmail.com"
-          v-model="email"
-          id="email"
-        />
-      </div>
-      <div class="form-section">
-        <label class="text-medium" for="">Password</label>
-
-        <div class="">
+  <div class="main-layout">
+    <div class="center-logo-login">
+      <img class="logo-sign" src="/src/assets/logo.svg" alt="Task-it logo" />
+    </div>
+    <div class="layout">
+      <p class="title">Let's Login</p>
+      <p class="text-base">And start taking notes!</p>
+      <p v-if="errorMsg" class="error-text">
+        {{ errorMsg }}
+      </p>
+      <form @submit.prevent="signIn" class="form-container">
+        <div class="form-section">
+          <label class="text-medium" for="">Email Address</label>
+          <input
+            class="input-form text-base"
+            type="email"
+            placeholder="example@gmail.com"
+            v-model="email"
+            id="email"
+          />
+        </div>
+        <div class="form-section">
+          <label class="text-medium" for="">Password</label>
           <input
             class="input-form text-base"
             :type="passwordFieldType"
@@ -31,22 +30,26 @@
             v-model="password"
             id="password"
           />
-          <span class="">
-            <EyeIcon
-              :class="[passwordFieldIcon]"
+          <span class="eye-icon-position">
+            <button
+              class="icons-task eye-icon"
               @click.prevent="hidePassword = !hidePassword"
-            />
+            ></button>
           </span>
         </div>
-      </div>
 
-      <button class="button text-medium" type="submit">Login</button>
-      <p class="centered">
-        <span class="text-medium purple">Don’t have any account? </span>
+        <button class="button text-medium" type="submit">Login</button>
+        <p class="centered">
+          <span class="text-medium purple">Don’t have any account? </span>
 
-        <PersonalRouter class="text-medium purple" :route="route" :buttonText="buttonText" />
-      </p>
-    </form>
+          <PersonalRouter
+            class="text-medium purple"
+            :route="route"
+            :buttonText="buttonText"
+          />
+        </p>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -95,8 +98,3 @@ const signIn = async () => {
   }
 };
 </script>
-<style>
-
-/* @import "../assets/main.css"; */
-
-</style>

@@ -8,6 +8,7 @@
             :class="
               taskData.is_complete ? 'check-icon-done' : 'check-icon-active'
             "
+            class="check-icon-active"
           ></button>
           <b
             :class="

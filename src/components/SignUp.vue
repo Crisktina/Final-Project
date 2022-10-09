@@ -1,62 +1,72 @@
 <template>
-<div class="center-logo-login">
-<img class="logo-sign" src="/src/assets/logo.svg" alt="Task-it logo">
-</div>
-  <div class="layout">
-    <p class="title">Register</p>
-    <p class="text-base">And start taking notes!</p>
-    <p v-if="errorMsg" class="">
-      {{ errorMsg }}
-    </p>
-    <form @submit.prevent="signUp" class="form-container">
-      <div class="form-section">
-        <label class="text-medium" for="">Email Address</label>
-        <input
-          class="input-form text-base"
-          type="email"
-          placeholder="user@email.com"
-          v-model="email"
-          id="email"
-        />
-      </div>
-      <div class="form-section">
-        <label class="text-medium" for="">Password</label>
-        <input
-          class="input-form text-base"
-          type="password"
-          placeholder="************"
-          v-model="password"
-          id="password"
-        />
-        <span class="">
-          <EyeIcon
-            :class="[passwordFieldIcon]"
-            @click.prevent="hidePassword = !hidePassword"
-          />
-        </span>
-      </div>
-      <div class="form-section">
-        <label class="text-medium" for="">Confirm Password</label>
-        <input
-          class="input-form text-base"
-          type="password"
-          placeholder="************"
-          v-model="confirmPassword"
-          id="confirmPassword"
-        />
-        <span class="">
-          <EyeIcon
-            :class="[passwordFieldIcon]"
-            @click.prevent="hidePassword = !hidePassword"
-          />
-        </span>
-      </div>
-      <button class="button text-medium" type="submit">Register</button>
-      <p class="centered">
-        <span class="text-medium purple">Already have an account?</span>
-        <PersonalRouter class="text-medium purple" :route="route" :buttonText="buttonText" />
+  <div class="main-layout">
+    <div class="center-logo-login">
+      <img class="logo-sign" src="/src/assets/logo.svg" alt="Task-it logo" />
+    </div>
+    <div class="layout">
+      <p class="title">Register</p>
+      <p class="text-base">And start taking notes!</p>
+      <p v-if="errorMsg" class="error-text">
+        {{ errorMsg }}
       </p>
-    </form>
+      <form @submit.prevent="signUp" class="form-container">
+        <div class="form-section">
+          <label class="text-medium" for="">Email Address</label>
+          <input
+            class="input-form text-base"
+            type="email"
+            placeholder="user@email.com"
+            v-model="email"
+            id="email"
+          />
+        </div>
+        <div class="form-section">
+          <label class="text-medium" for="">Password</label>
+          <input
+            class="input-form text-base"
+            type="password"
+            placeholder="************"
+            v-model="password"
+            id="password"
+          />
+          <span class="eye-icon-position">
+            <button
+              class="icons-task eye-icon"
+              @click.prevent="hidePassword = !hidePassword"
+            ></button>
+          </span>
+        </div>
+        <div class="form-section">
+          <label class="text-medium" for="">Confirm Password</label>
+          <input
+            class="input-form text-base"
+            type="password"
+            placeholder="************"
+            v-model="confirmPassword"
+            id="confirmPassword"
+          />
+          <span class="eye-icon-position">
+            <button
+              class="icons-task eye-icon"
+              @click.prevent="hidePassword = !hidePassword"
+            ></button>
+            <!-- <EyeIcon
+              :class="[passwordFieldIcon]"
+              @click.prevent="hidePassword = !hidePassword"
+            /> -->
+          </span>
+        </div>
+        <button class="button text-medium" type="submit">Register</button>
+        <p class="centered">
+          <span class="text-medium purple">Already have an account?</span>
+          <PersonalRouter
+            class="text-medium purple"
+            :route="route"
+            :buttonText="buttonText"
+          />
+        </p>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -99,7 +109,3 @@ async function signUp() {
   }, 5000);
 }
 </script>
-
-<style>
-/* @import "../assets/main.css"; */
-</style>
