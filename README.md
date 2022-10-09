@@ -71,3 +71,9 @@ Log out button funcional.
 Poner las tasks ordenadas según Active o completed.
 Tasks como completed, arreglar activar/desactivar.
 Modify tasks.
+
+### Day 6
+
+Modify tasks hacer-lo funcionar.
+Alerta al eliminar tasks.
+Alerta al hacer logout.

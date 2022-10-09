@@ -3,7 +3,7 @@
     <img class="logo" src="/src/assets/logo.svg" alt="Task-it logo" />
     <!-- constant that saves the user email and cleans out the @client from the user -->
     <div class="text-base small-text user-name">
-      USER <br />
+      Welcome Back <br />
       {{ userName.toUpperCase().substring(0, userName.indexOf("@")) }}
     </div>
     <button
