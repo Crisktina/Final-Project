@@ -8,7 +8,7 @@
       </p>
       <ol>
         <!-- poner v-if v-else en esta sección -->
-        <div v-if="showTask">
+        <div v-if="showTaskUndone">
           <TaskItem
             @deleteTaskChildren="deleteTaskFather"
             @completedTaskChildren="completeTaskFather"
@@ -40,7 +40,7 @@
         COMPLETED TASKS: {{ taskArrayCompleted.length }}
       </p>
       <ol>
-        <div v-if="showTask">
+        <div v-if="showTaskCompleted">
           <TaskItem
             @deleteTaskChildren="deleteTaskFather"
             @completedTaskChildren="completeTaskFather"
@@ -84,21 +84,22 @@ import { useTaskStore } from "../stores/task.js";
 import { supabase } from "../supabase";
 
 // hacer toggle para mostrar u ocultar la imagen
-const showTask = ref(false);
+const showTaskCompleted = ref(false);
+const showTaskUndone = ref(false);
 
 function toggleShowTaskCompleted() {
   if (taskArrayCompleted.value.length !== 0) {
-    showTask.value = true;
+    showTaskCompleted.value = true;
   } else {
-    showTask.value = false;
+    showTaskCompleted.value = false;
   }
 }
 
-function toggleShowTaskActive() {
+function toggleShowTaskUndone() {
   if (taskArrayUndone.value.length !== 0) {
-    showTask.value = true;
+    showTaskUndone.value = true;
   } else {
-    showTask.value = false;
+    showTaskUndone.value = false;
   }
 }
 
@@ -120,13 +121,13 @@ async function readFromStore() {
   taskArrayCompleted.value = await taskStore.fetchTasksTrue(true);
   taskArrayModify.value = await taskStore.fetchTasksTrue(true);
   toggleShowTaskCompleted();
-  toggleShowTaskActive();
+  toggleShowTaskUndone();
 }
 readFromStore();
 
 // Enviamos los datos de la tarea a la Tienda taskStore
 async function sendToStore(title, description) {
-  toggleShowTaskActive();
+  toggleShowTaskUndone();
   await taskStore.addTask(title, description);
   readFromStore();
 }

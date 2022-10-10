@@ -1,16 +1,19 @@
 <template>
   <div class="nav-layout">
     <img class="logo" src="/src/assets/logo.svg" alt="Task-it logo" />
-    <!-- constant that saves the user email and cleans out the @client from the user -->
-    <div class="text-base small-text user-name">
-      Welcome Back <br />
-      {{ userName.toUpperCase().substring(0, userName.indexOf("@")) }}
+
+    <div>
+      <!-- constant that saves the user email and cleans out the @client from the user -->
+      <div class="text-base small-text user-name">
+        Welcome Back <br />
+        {{ userName.toUpperCase().substring(0, userName.indexOf("@")) }}
+      </div>
+      <button
+        @click="signOut"
+        class="button-log-out text-medium"
+        type="submit"
+      ></button>
     </div>
-    <button
-      @click="signOut"
-      class="button-log-out text-medium"
-      type="submit"
-    ></button>
     <div v-if="errorMessageContainer">
       <p>{{ errorMessage }}</p>
     </div>
