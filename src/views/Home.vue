@@ -8,7 +8,7 @@
       </p>
       <ol>
         <!-- poner v-if v-else en esta sección -->
-        <div>
+        <div v-if="showTask">
           <TaskItem
             @deleteTaskChildren="deleteTaskFather"
             @completedTaskChildren="completeTaskFather"
@@ -19,7 +19,7 @@
           ></TaskItem>
         </div>
         <!-- SECTION WITH EMPTY TASKS -->
-        <div class="layout-illustration">
+        <div v-else class="layout-illustration">
           <img
             class="ilustration-tasks"
             src="src/assets/ilustrationActiveTasks.svg"
@@ -40,16 +40,18 @@
         COMPLETED TASKS: {{ taskArrayCompleted.length }}
       </p>
       <ol>
-        <TaskItem
-          @deleteTaskChildren="deleteTaskFather"
-          @completedTaskChildren="completeTaskFather"
-          @modifyTaskChildren="modifyTaskFather"
-          v-for="(task, index) in taskArrayCompleted"
-          :key="index"
-          :taskData="task"
-        ></TaskItem>
-        <!-- SECTION WITH EMPTY TASKS -->
-        <div class="layout-illustration">
+        <div v-if="showTask">
+          <TaskItem
+            @deleteTaskChildren="deleteTaskFather"
+            @completedTaskChildren="completeTaskFather"
+            @modifyTaskChildren="modifyTaskFather"
+            v-for="(task, index) in taskArrayCompleted"
+            :key="index"
+            :taskData="task"
+          ></TaskItem>
+        </div>
+        <!-- SECTION FOR EMPTY TASKS -->
+        <div v-else class="layout-illustration">
           <img
             class="ilustration-tasks"
             src="src/assets/ilustrationCompletedTasks.svg"
@@ -81,6 +83,25 @@ import TaskItem from "../components/TaskItem.vue";
 import { useTaskStore } from "../stores/task.js";
 import { supabase } from "../supabase";
 
+// hacer toggle para mostrar u ocultar la imagen
+const showTask = ref(false);
+
+function toggleShowTaskCompleted() {
+  if (taskArrayCompleted.value.length !== 0) {
+    showTask.value = true;
+  } else {
+    showTask.value = false;
+  }
+}
+
+function toggleShowTaskActive() {
+  if (taskArrayUndone.value.length !== 0) {
+    showTask.value = true;
+  } else {
+    showTask.value = false;
+  }
+}
+
 // nos definimos la tienda del usuario dentro de una constante
 const taskStore = useTaskStore();
 
@@ -98,11 +119,14 @@ async function readFromStore() {
   taskArrayUndone.value = await taskStore.fetchTasksTrue(false);
   taskArrayCompleted.value = await taskStore.fetchTasksTrue(true);
   taskArrayModify.value = await taskStore.fetchTasksTrue(true);
+  toggleShowTaskCompleted();
+  toggleShowTaskActive();
 }
 readFromStore();
 
 // Enviamos los datos de la tarea a la Tienda taskStore
 async function sendToStore(title, description) {
+  toggleShowTaskActive();
   await taskStore.addTask(title, description);
   readFromStore();
 }
@@ -116,12 +140,16 @@ readAll();
 // function para borrar Task
 const deleteTaskFather = async (deleteId) => {
   await taskStore.deleteOneTask(deleteId);
+  if (taskArrayCompleted.value.length === 0) {
+    toggleShowTaskCompleted();
+  }
   readFromStore();
 };
 
 //function para completed Task
 
 const completeTaskFather = async (id, status) => {
+  toggleShowTaskCompleted();
   await taskStore.completeTask(id, status);
   readFromStore();
 };
@@ -133,8 +161,6 @@ const modifyTaskFather = async (id, title, description) => {
   readFromStore();
 };
 </script>
-
-<style scoped></style>
 
 <!-- 
 **Hints**
