@@ -22,7 +22,7 @@
         <div v-else class="layout-illustration">
           <img
             class="ilustration-tasks"
-            src="src/assets/ilustrationActiveTasks.svg"
+            src="https://res.cloudinary.com/dz4jvwp3u/image/upload/v1665418391/Task%20App/ilustrationActiveTasks_qanv6p.svg"
             alt="ilustration about girl with idea"
           />
           <h2 class="text-xl-bold">Start Your Journey</h2>
@@ -54,7 +54,7 @@
         <div v-else class="layout-illustration">
           <img
             class="ilustration-tasks"
-            src="src/assets/ilustrationCompletedTasks.svg"
+            src="https://res.cloudinary.com/dz4jvwp3u/image/upload/v1665418391/Task%20App/ilustrationCompletedTasks_bbifps.svg"
             alt="ilustration about girl with idea"
           />
           <h2 class="text-xl-bold">No Completed Tasks Yet</h2>

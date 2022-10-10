@@ -5,7 +5,7 @@
         <img class="logo-sign" src="/src/assets/logo.svg" alt="Task-it logo" />
         <img
           class="ilustration-sign"
-          src="../assets/illustrationLogIn.svg"
+          src="https://res.cloudinary.com/dz4jvwp3u/image/upload/v1665418391/Task%20App/illustrationLogIn_b6ag0k.svg"
           alt="illustration with person doing tasks"
         />
       </div>
