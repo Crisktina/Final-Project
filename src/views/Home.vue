@@ -128,8 +128,8 @@ const completeTaskFather = async (id, status) => {
 
 //function para modify Task
 
-const modifyTaskFather = async (id) => {
-  await taskStore.modifyTask(id);
+const modifyTaskFather = async (id, title, description) => {
+  await taskStore.modifyTask(id, title, description);
   readFromStore();
 };
 </script>

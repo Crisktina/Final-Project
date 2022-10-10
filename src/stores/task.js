@@ -33,10 +33,10 @@ export const useTaskStore = defineStore("tasks", {
                 description: description,
             }, ]);
         },
-        async modifyTask(id) {
+        async modifyTask(id, newTitle, newDescription) {
             const { data, error } = await supabase
                 .from("tasks")
-                .update({ title: title.concat(), description: description.concat() })
+                .update({ title: newTitle, description: newDescription })
                 .match({ id: id });
         },
         async completeTask(id, status) {
