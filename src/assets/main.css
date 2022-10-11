@@ -413,6 +413,15 @@ ol {
     background-image: url(/src/assets/modifyIconGreen.svg);
 }
 
+.input-modify {
+    background-color: #f7f6d4;
+    border: none;
+    cursor: text;
+    border-radius: 8px;
+    padding-left: 10px;
+    width: 90%;
+}
+
 
 /* task active */
 

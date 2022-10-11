@@ -12,8 +12,13 @@
           ></button>
           <!-- input para cambiar titulo -->
           <div v-if="showModify">
-            <input class="" type="text" placeholder=" " v-model="taskTitle" />
-            <span><button @click.prevent="modifyTask">check</button></span>
+            <input
+              class="input-modify text-medium-bold"
+              type="text"
+              placeholder=" "
+              v-model="taskTitle"
+            />
+            <!-- <span><button @click.prevent="modifyTask">check</button></span> -->
           </div>
           <b
             v-else
@@ -29,7 +34,12 @@
         <hr class="hr-purple" />
         <!-- input para cambiar description -->
         <div v-if="showModify">
-          <input class="" type="text" placeholder=" " v-model="taskDesc" />
+          <input
+            class="input-modify task-text-active"
+            type="text"
+            placeholder=" "
+            v-model="taskDesc"
+          />
           <span><button @click.prevent="modifyTask">check</button></span>
         </div>
 
