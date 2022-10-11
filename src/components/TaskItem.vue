@@ -18,7 +18,11 @@
               placeholder=" "
               v-model="taskTitle"
             />
-            <!-- <span><button @click.prevent="modifyTask">check</button></span> -->
+            <span
+              ><button class="ok-modify" @click.prevent="modifyTask">
+                OK
+              </button></span
+            >
           </div>
           <b
             v-else
@@ -40,7 +44,7 @@
             placeholder=" "
             v-model="taskDesc"
           />
-          <span><button @click.prevent="modifyTask">check</button></span>
+          <!-- <span><button @click.prevent="modifyTask">check</button></span> -->
         </div>
 
         <p
