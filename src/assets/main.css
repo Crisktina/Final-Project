@@ -307,12 +307,13 @@ ol {
     background-color: #6a3ea1;
     border: 9px solid #faf8fc;
     border-radius: 100px;
-    padding: 35px;
-    left: 40vw;
-    right: 40vw;
-    bottom: -43px;
-    cursor: pointer;
+    width: 90px;
+    height: 90px;
     position: relative;
+    left: 50vw;
+    /* right: 40%; */
+    top: 45px;
+    cursor: pointer;
 }
 
 .button-add-task:hover {
@@ -510,11 +511,11 @@ ol {
 }
 
 
+/* --------VERSIÓN TABLET-------- */
+
+@media (min-width: 768px) {}
+
+
 /* --------VERSIÓN DESKTOP-------- */
 
-@media (min-width: 1024px) {
-    body {
-        display: block;
-        place-items: center;
-    }
-}
+@media (min-width: 1024px) {}

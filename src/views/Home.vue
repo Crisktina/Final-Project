@@ -44,7 +44,6 @@
           <TaskItem
             @deleteTaskChildren="deleteTaskFather"
             @completedTaskChildren="completeTaskFather"
-            @modifyTaskChildren="modifyTaskFather"
             v-for="(task, index) in taskArrayCompleted"
             :key="index"
             :taskData="task"
