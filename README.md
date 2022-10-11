@@ -77,3 +77,8 @@ Modify tasks.
 Modify tasks hacer-lo funcionar.
 Alerta al eliminar tasks.
 Alerta al hacer logout.
+Deployment en vercel.
+
+### Day 7
+
+Hacer media querys de la versión desktop.

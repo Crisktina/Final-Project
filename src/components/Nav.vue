@@ -2,7 +2,7 @@
   <div class="nav-layout">
     <img class="logo" src="/src/assets/logo.svg" alt="Task-it logo" />
 
-    <div>
+    <div class="user-box">
       <!-- constant that saves the user email and cleans out the @client from the user -->
       <div class="text-base small-text user-name">
         Welcome Back <br />

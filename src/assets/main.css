@@ -235,9 +235,15 @@ ol {
     overflow: hidden;
 }
 
+.user-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .user-name {
-    justify-self: self-end;
     text-align: end;
+    margin-right: 20px;
 }
 
 .button-log-out {
