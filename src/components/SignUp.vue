@@ -101,7 +101,7 @@ async function signUp() {
     try {
       await useUserStore().signUp(email.value, password.value);
       // if (error) throw error;
-      redirect.push({ path: "/auth" });
+      redirect.push({ path: "/auth/login" });
     } catch (error) {
       errorMsg.value = error.message;
       setTimeout(() => {

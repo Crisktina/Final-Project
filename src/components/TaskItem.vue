@@ -19,7 +19,7 @@
               v-model="taskTitle"
             />
             <span
-              ><button class="ok-modify" @click.prevent="modifyTask">
+              ><button class="ok-modify-button" @click.prevent="modifyTask">
                 OK
               </button></span
             >
