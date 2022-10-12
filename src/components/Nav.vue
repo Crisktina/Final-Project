@@ -24,6 +24,7 @@
 import { ref } from "vue";
 import { useUserStore } from "@/stores/user.js";
 import { useRouter } from "vue-router";
+
 //coger el email del usuario
 // constant that calls user email from the useUSerStore
 let userName = ref(useUserStore().user.email);
@@ -41,12 +42,39 @@ const redirect = useRouter();
 const userStore = useUserStore();
 // async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
 // TEMPLATE: async function signOut() {}
+// async function signOut() {
+//   try {
+//     await userStore.signOut();
+//     // redirects user to the homeview
+//     redirect.push({ path: "/auth/login" });
+//   } catch (error) {
+//     errorMessage.value = error.message;
+//     setTimeout(() => {
+//       errorMessage.value = null;
+//       errorMessageContainer.value = false;
+//     }, 2000);
+//   }
+// }
+
 async function signOut() {
   //caso de uso si existe un error por supabase, supabase se encarga de darnos un tipo de error por la función de la store de user.js
   try {
     await userStore.signOut();
-    // redirects user to the homeview
-    redirect.push({ path: "/auth/login" });
+    //sweetalert2: alerta para confirmar si se quiere hacer logOut
+    Swal.fire({
+      title: "Are you sure you want to log out?",
+      showCancelButton: true,
+      cancelButtonText: "Cancel",
+      cancelButtonColor: "#CE3A54",
+      confirmButtonText: "Confirm",
+      confirmButtonColor: "#60D889",
+      icon: "warning",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // redirects user to the homeview
+        redirect.push({ path: "/auth/login" });
+      }
+    });
   } catch (error) {
     errorMessage.value = error.message;
     setTimeout(() => {

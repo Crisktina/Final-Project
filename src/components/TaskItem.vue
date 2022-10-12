@@ -112,7 +112,24 @@ const emit = defineEmits([
 //    emit("deleteTaskChildren", props.taskData.id);
 // }
 const deleteTask = () => {
-  emit("deleteTaskChildren", props.taskData.id);
+  //sweetalert2: alerta para confirmar que se quiere borrar la tarea
+  Swal.fire({
+    title: "Are you sure you want to delete it?",
+    showCancelButton: true,
+    cancelButtonText: "Cancel",
+    cancelButtonColor: "#CE3A54",
+    confirmButtonText: "Confirm",
+    confirmButtonColor: "#60D889",
+    icon: "warning",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      emit("deleteTaskChildren", props.taskData.id);
+      Swal.fire({
+        text: "Your task has been deleted.",
+        icon: "success",
+      });
+    }
+  });
 };
 
 // 6. Function to emmit a custom event emit() that takes 2 parameters a name for the custom event and the value that will be send via the prop to the parent component. This function can control the toggle completion of the task on the homeview.

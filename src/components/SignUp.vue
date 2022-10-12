@@ -85,7 +85,6 @@ const buttonText = " Login here";
 // Input Fields
 const email = ref(null);
 const password = ref(null);
-const confirmPassword = ref(null);
 // Error Message
 const errorMsg = ref(null);
 
@@ -96,7 +95,7 @@ const passwordFieldType = computed(() =>
 const hidePassword = ref(true);
 // Show hide confrimPassword variable
 const passwordFieldTypeConfirm = computed(() =>
-  hidePasswordConfirm.value ? "confirmPassword" : "text"
+  hidePasswordConfirm.value ? "password" : "text"
 );
 const hidePasswordConfirm = ref(true);
 // Router to push user once SignedUp to Log In
