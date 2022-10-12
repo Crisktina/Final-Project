@@ -82,3 +82,15 @@ Deployment en vercel.
 ### Day 7
 
 Hacer media querys de la versión desktop.
+
+### Day 8
+
+css adaptado a responsive.
+css del modify tasks.
+Diseñar el email template de confirmación.
+Desactivar el botón de modify tasks cuando las tasks estan en completed.
+
+### Day 9
+
+Crear alerta para el log out y eliminar task.
+Hacer presentación.
