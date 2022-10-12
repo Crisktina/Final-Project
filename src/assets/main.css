@@ -553,6 +553,7 @@ ol {
     }
     .layout {
         max-width: 45%;
+        min-width: 30%;
         margin-top: 20px;
     }
     .center-logo-login {

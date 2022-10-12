@@ -54,12 +54,8 @@
             <span class="eye-icon-position">
               <button
                 class="icons-task eye-icon"
-                @click.prevent="hidePassword = !hidePassword"
+                @click.prevent="hidePasswordConfirm = !hidePasswordConfirm"
               ></button>
-              <!-- <EyeIcon
-              :class="[passwordFieldIcon]"
-              @click.prevent="hidePassword = !hidePassword"
-            /> -->
             </span>
           </div>
           <button class="button text-medium" type="submit">Register</button>
@@ -78,10 +74,11 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
+import { ref, computed } from "vue";
 import PersonalRouter from "./PersonalRouter.vue";
+import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
+import { storeToRefs } from "pinia";
 // Route Variables
 const route = "/auth/login";
 const buttonText = " Login here";
@@ -89,10 +86,19 @@ const buttonText = " Login here";
 const email = ref(null);
 const password = ref(null);
 const confirmPassword = ref(null);
-const errorMsg = ref(null);
 // Error Message
+const errorMsg = ref(null);
+
 // Show hide password variable
+const passwordFieldType = computed(() =>
+  hidePassword.value ? "password" : "text"
+);
+const hidePassword = ref(true);
 // Show hide confrimPassword variable
+const passwordFieldTypeConfirm = computed(() =>
+  hidePasswordConfirm.value ? "confirmPassword" : "text"
+);
+const hidePasswordConfirm = ref(true);
 // Router to push user once SignedUp to Log In
 const redirect = useRouter();
 // function to SignUp user to supaBase with a timeOut() method for showing the error
