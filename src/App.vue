@@ -30,10 +30,7 @@ onMounted(async () => {
 </script>
 
 <template>
-    <router-view  />
-    <!-- <Footer /> -->
+  <router-view />
 </template>
 
-<style>
-
-</style>
+<style></style>

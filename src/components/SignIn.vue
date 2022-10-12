@@ -28,20 +28,22 @@
           </div>
           <div class="form-section">
             <label class="text-medium" for="">Password</label>
-            <input
-              class="input-form text-base"
-              :type="passwordFieldType"
-              onpaste="return false"
-              placeholder="************"
-              v-model="password"
-              id="password"
-            />
-            <span class="eye-icon-position">
-              <button
-                class="icons-task eye-icon"
-                @click.prevent="hidePassword = !hidePassword"
-              ></button>
-            </span>
+            <div>
+              <input
+                class="input-form text-base"
+                :type="passwordFieldType"
+                onpaste="return false"
+                placeholder="************"
+                v-model="password"
+                id="password"
+              />
+              <span class="eye-icon-position">
+                <button
+                  class="icons-task eye-icon"
+                  @click.prevent="hidePassword = !hidePassword"
+                ></button>
+              </span>
+            </div>
           </div>
 
           <button class="button text-medium" type="submit">Login</button>
