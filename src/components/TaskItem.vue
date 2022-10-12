@@ -45,7 +45,7 @@
           />
           <span>
             <button class="ok-modify-button" @click.prevent="modifyTask">
-              EDITED DONE
+              SUBMIT
             </button>
           </span>
         </div>

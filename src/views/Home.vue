@@ -25,7 +25,7 @@
             src="https://res.cloudinary.com/dz4jvwp3u/image/upload/v1665418391/Task%20App/ilustrationActiveTasks_qanv6p.svg"
             alt="ilustration about girl with idea"
           />
-          <h2 class="text-xl-bold">Start Your Journey</h2>
+          <h2 class="text-xl-bold center-text">Start Your Journey</h2>
           <p class="text-base center-text margin-text">
             Every big step start with small task.<br />
             Notes your first task and start being organized!
@@ -56,7 +56,7 @@
             src="https://res.cloudinary.com/dz4jvwp3u/image/upload/v1665418391/Task%20App/ilustrationCompletedTasks_bbifps.svg"
             alt="ilustration about girl with idea"
           />
-          <h2 class="text-xl-bold">No Completed Tasks Yet</h2>
+          <h2 class="text-xl-bold center-text">No Completed Tasks Yet</h2>
           <p class="text-base center-text margin-text">
             Once you finish a task, it will be appeared on this screen. So,
             let’s start!
