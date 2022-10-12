@@ -11,18 +11,18 @@
             class="check-icon-active"
           ></button>
           <!-- input para cambiar titulo -->
-          <div v-if="showModify">
+          <div class="input-modify-box" v-if="showModify">
             <input
               class="input-modify text-medium-bold"
               type="text"
               placeholder=" "
               v-model="taskTitle"
             />
-            <span
-              ><button class="ok-modify-button" @click.prevent="modifyTask">
-                OK
-              </button></span
-            >
+            <!-- <span>
+              <button class="ok-modify-button" @click.prevent="modifyTask">
+                DONE
+              </button>
+            </span> -->
           </div>
           <b
             v-else
@@ -31,7 +31,6 @@
                 ? 'text-medium-bold-done'
                 : 'text-medium-bold'
             "
-            class="text-medium-bold"
             >{{ taskData.title }}
           </b>
         </div>
@@ -44,7 +43,11 @@
             placeholder=" "
             v-model="taskDesc"
           />
-          <!-- <span><button @click.prevent="modifyTask">check</button></span> -->
+          <span>
+            <button class="ok-modify-button" @click.prevent="modifyTask">
+              EDITED DONE
+            </button>
+          </span>
         </div>
 
         <p

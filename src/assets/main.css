@@ -139,13 +139,13 @@ ol {
 }
 
 .ilustration-sign {
-    width: 50%;
+    width: 70%;
     display: block;
     margin-top: 20px;
 }
 
 .logo-sign {
-    width: 30%;
+    width: 40%;
     height: auto;
 }
 
@@ -412,24 +412,6 @@ ol {
     background-image: url(/src/assets/modifyIconGreen.svg);
 }
 
-.input-modify {
-    background-color: #f7f6d4;
-    border: none;
-    cursor: text;
-    padding: 10px;
-    width: 100%;
-    margin-right: 10px;
-}
-
-.ok-modify-button {
-    border: none;
-    cursor: pointer;
-    color: #6a3ea1;
-    background-color: #f8c715;
-    padding: 10px;
-    border-radius: 8px;
-}
-
 
 /* task active */
 
@@ -506,6 +488,32 @@ ol {
     line-height: 140%;
     text-decoration: line-through;
     color: #1f7f40;
+}
+
+
+/* task modify */
+
+.input-modify-box {
+    width: 100%;
+}
+
+.input-modify {
+    background-color: #f7f6d4;
+    border: none;
+    cursor: text;
+    padding: 10px;
+    width: 100%;
+}
+
+.ok-modify-button {
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #60d889;
+    padding: 10px;
+    border-radius: 0 0 8px 8px;
+    font-weight: 700;
+    width: 100%;
 }
 
 
