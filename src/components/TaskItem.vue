@@ -16,7 +16,7 @@
               class="input-modify text-medium-bold"
               type="text"
               placeholder=" "
-              v-model="taskTitle"
+              v-model="newTitle"
             />
             <!-- <span>
               <button class="ok-modify-button" @click.prevent="modifyTask">
@@ -41,7 +41,7 @@
             class="input-modify task-text-active"
             type="text"
             placeholder=" "
-            v-model="taskDesc"
+            v-model="newDescription"
           />
           <span>
             <button class="ok-modify-button" @click.prevent="modifyTask">
@@ -60,7 +60,11 @@
     </div>
     <div class="icons-task-alignment">
       <button @click="deleteTask" class="icons-task button-x-icon"></button>
-      <button @click="toggleModify" class="icons-task button-modify"></button>
+      <button
+        v-if="isComplete"
+        @click="toggleModify"
+        class="icons-task button-modify"
+      ></button>
     </div>
   </div>
 </template>
@@ -76,17 +80,21 @@ const props = defineProps(["taskData"]);
 const taskDesc = ref(props.taskData.description);
 const taskTitle = ref(props.taskData.title);
 const showModify = ref(false);
+const isComplete = ref(!props.taskData.is_complete);
 // 5. Function to handle the edit dialogue where the inputField is displayed and the string used to store the value of the inputField will be used here to save the value as a prop on this function.
 function toggleModify() {
   showModify.value = !showModify.value;
 }
+
+const newTitle = ref(props.taskData.title);
+const newDescription = ref(props.taskData.description);
 // 7. Function to edit the task information that you decided that the user can edit. This function's body takes in a conditional that first checks if the value of the task [either title and description or just title] is empty which if true it runs the function used to handle the error on hint4. Else, the conditional sets the first mentioned boolean data property on hint2 back to its inital boolean value to hide the error message and repeat the same for the data property mentioned 4th on hint2; a constant that stores an object that holds the oldValue from the prop item and the value of the task coming from the data property mentioned 3rd on hint2; a custom event emit() that takes 2 parameters a name for the custom event and the value from the object used on this part of the conditional and lastly this part of the conditional sets the value of input field to an empty string to clear it from the ui.
 const modifyTask = () => {
   emit(
     "modifyTaskChildren",
     props.taskData.id,
-    taskTitle.value,
-    taskDesc.value
+    newTitle.value,
+    newDescription.value
   );
   showModify.value = !showModify.value;
 };
