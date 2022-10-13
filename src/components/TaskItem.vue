@@ -115,18 +115,20 @@ const deleteTask = () => {
   //sweetalert2: alerta para confirmar que se quiere borrar la tarea
   Swal.fire({
     title: "Are you sure you want to delete it?",
+    icon: "warning",
     showCancelButton: true,
     cancelButtonText: "Cancel",
     cancelButtonColor: "#CE3A54",
     confirmButtonText: "Confirm",
     confirmButtonColor: "#60D889",
-    icon: "warning",
-  }).then((result) => {
-    if (result.isConfirmed) {
+  }).then((response) => {
+    if (response.isConfirmed) {
       emit("deleteTaskChildren", props.taskData.id);
       Swal.fire({
         text: "Your task has been deleted.",
         icon: "success",
+        showConfirmButton: false,
+        timer: 1000,
       });
     }
   });

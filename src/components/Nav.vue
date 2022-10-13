@@ -66,11 +66,11 @@ async function signOut() {
       showCancelButton: true,
       cancelButtonText: "Cancel",
       cancelButtonColor: "#CE3A54",
-      confirmButtonText: "Confirm",
+      confirmButtonText: "Log Out",
       confirmButtonColor: "#60D889",
       icon: "warning",
-    }).then((result) => {
-      if (result.isConfirmed) {
+    }).then((response) => {
+      if (response.isConfirmed) {
         // redirects user to the homeview
         redirect.push({ path: "/auth/login" });
       }

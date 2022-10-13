@@ -89,8 +89,9 @@ css adaptado a responsive.
 css del modify tasks.
 Diseñar el email template de confirmación.
 Desactivar el botón de modify tasks cuando las tasks estan en completed.
+Crear alerta para el log out y eliminar task.
 
 ### Day 9
 
-Crear alerta para el log out y eliminar task.
 Hacer presentación.
+Arreglar mostrar password en Register.
