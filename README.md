@@ -95,3 +95,9 @@ Crear alerta para el log out y eliminar task.
 
 Hacer presentación.
 Arreglar mostrar password en Register.
+
+
+### Links de importancia
+https://app.supabase.com/project/ugutucrkszneebdjwnwk/auth/users
+https://vercel.com/crisktina/task-it-web
+https://cloudinary.com/console/c-80c0e264ea002dd2f593106962871b/media_library/folders/c1e155c756095ce53d98376a51a8af9b0e
