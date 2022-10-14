@@ -30,7 +30,7 @@
             <label class="text-medium" for="">Password</label>
             <input
               class="input-form text-base"
-              type="password"
+              :type="passwordFieldType"
               placeholder="************"
               v-model="password"
               id="password"
@@ -46,7 +46,7 @@
             <label class="text-medium" for="">Confirm Password</label>
             <input
               class="input-form text-base"
-              type="password"
+              :type="passwordFieldTypeConfirm"
               placeholder="************"
               v-model="confirmPassword"
               id="confirmPassword"
@@ -76,30 +76,37 @@
 <script setup>
 import { ref, computed } from "vue";
 import PersonalRouter from "./PersonalRouter.vue";
+import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
+
 // Route Variables
 const route = "/auth/login";
 const buttonText = " Login here";
+
 // Input Fields
-const email = ref(null);
-const password = ref(null);
+const email = ref("");
+const password = ref("");
+
 // Error Message
-const errorMsg = ref(null);
+const errorMsg = ref("");
 
 // Show hide password variable
 const passwordFieldType = computed(() =>
   hidePassword.value ? "password" : "text"
 );
 const hidePassword = ref(true);
+
 // Show hide confrimPassword variable
 const passwordFieldTypeConfirm = computed(() =>
   hidePasswordConfirm.value ? "password" : "text"
 );
 const hidePasswordConfirm = ref(true);
+
 // Router to push user once SignedUp to Log In
 const redirect = useRouter();
+
 // function to SignUp user to supaBase with a timeOut() method for showing the error
 async function signUp() {
   if (password.value === confirmPassword.value) {
@@ -108,7 +115,9 @@ async function signUp() {
       // if (error) throw error;
       redirect.push({ path: "/auth/login" });
     } catch (error) {
+      // displays error message
       errorMsg.value = error.message;
+      // hides error message
       setTimeout(() => {
         errorMsg.value = null;
       }, 5000);

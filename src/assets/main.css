@@ -279,6 +279,7 @@ ol {
     flex-direction: column;
     align-items: center;
     padding: 0 12px;
+    max-width: 100%;
 }
 
 .ilustration-tasks {
@@ -586,5 +587,11 @@ ol {
     }
     .ilustration-tasks {
         width: 75%;
+    }
+    .margin-text {
+        margin-top: 0px;
+    }
+    .text-imput {
+        padding: 10px;
     }
 }
