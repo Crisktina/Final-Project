@@ -546,7 +546,7 @@ ol {
         margin-top: 50px;
     }
     .main-layout {
-        padding: 0 4%;
+        padding: 0 3%;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -578,20 +578,38 @@ ol {
     }
     /* NAV */
     .nav-layout {
-        padding: 2% 4%;
-        margin-bottom: 30px;
+        padding: 1% 3%;
+        margin-bottom: 20px;
     }
     /* SECTION WITH EMPTY TASKS */
     .layout-illustration {
-        width: 540px;
+        width: 500px;
     }
     .ilustration-tasks {
-        width: 75%;
+        width: 65%;
     }
     .margin-text {
-        margin-top: 0px;
+        margin-top: 10px;
     }
     .text-imput {
         padding: 10px;
+    }
+    .text-xl-bold {
+        font-size: 22px;
+    }
+    .small-text {
+        margin-top: 0px;
+    }
+    .text-medium-bold {
+        font-size: 16px;
+    }
+    .text-base {
+        font-size: 14px;
+    }
+    .task-text-active {
+        font-size: 14px;
+    }
+    .task-text-done {
+        font-size: 14px;
     }
 }
