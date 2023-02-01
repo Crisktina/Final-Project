@@ -12,7 +12,7 @@ Responsive web app running on Vue 3 with the composition API, Pinia as a state m
 
 ### Figma prototipe
 
-![Register](./src/assets/screenshot1.png) ![Login](./src/assets/screenshot2.png) ![home](./src/assets/screenshot3.png) ![home2](./src/assets/screenshot4.png)
+![Prototipe](./src/assets/screenshot.png)
 
 [Figma prototipe](<https://www.figma.com/file/q1C07Z615DXy62XvE5zMiE/UI-Kit-(taskit)?node-id=936%3A13105>)
 
