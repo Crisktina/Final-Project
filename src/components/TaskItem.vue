@@ -112,7 +112,6 @@ const emit = defineEmits([
 //    emit("deleteTaskChildren", props.taskData.id);
 // }
 const deleteTask = () => {
-  //sweetalert2: alerta para confirmar que se quiere borrar la tarea
   Swal.fire({
     title: "Are you sure you want to delete it?",
     icon: "warning",
@@ -142,15 +141,3 @@ const completedTask = () => {
 </script>
 
 <style></style>
-
-<!-- 
-**Hints**
-
-
-
-4. Function to handle the error with the data properties used to control the error and the boolean controlling the boolean empty variable.
-
-
-
-
--->
